@@ -42,6 +42,9 @@
 (electric-indent-mode +1)
 (show-paren-mode 1)
 
+;; Do not use tabs
+(setq-default indent-tabs-mode nil)
+
 ;; Packages
 
 (package-initialize)
@@ -58,3 +61,34 @@
 
 (use-package imenu
   :bind ("M-i" . imenu))
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1))
+
+(use-package whitespace
+  :ensure t
+  :config
+  (add-hook 'prog-mode 'whitespace-mode)
+  (setq whitespace-style '(face tabs tab-mark trailing empty)))
+
+;; Source control
+(use-package git-timemachine
+  :ensure t
+  :defer t)
+
+(use-package magit
+  :demand t
+  :ensure t
+  :bind ("C-x g" . magit-status))
+
+;; Searching
+
+(use-package ag
+  :ensure t
+  :commands (ag ag-regexp ag-project))
+
+(use-package smex :ensure t)
+
+
