@@ -184,14 +184,17 @@
   (interactive)
   (erc :server "irc.freenode.net" :port 6667 :nick "peirama"))
 
+(use-package buffer-move :ensure t)
 (use-package hydra :ensure t)
 (defhydra hydra-windmove (global-map "C-x C-o")
   "movement"
   ("o" other-window "other")
   ("b" windmove-left "left")
+  ("B" buf-move-left "buffer-left")
   ("f" windmove-right "right")
   ("F" (lambda () (interactive) (split-window-right)) "split-right")
   ("p" windmove-up "up")
+  ("P" buf-move-up "buffer-up")
   ("n" windmove-down "down")
   ("N" (lambda () (interactive) (split-window-below)) "split-down")
   ("x" delete-window "delete"))
