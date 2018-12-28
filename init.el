@@ -1,3 +1,7 @@
+;;; Init --- Initial file for my emacs configuration
+
+;;; Code:
+
 (package-initialize)
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -56,6 +60,11 @@
   :config
   (ido-mode t))
 
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands)))
+
 (use-package dired
   :bind ("C-x C-j" . dired-jump))
 
@@ -83,12 +92,50 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+(use-package diff-hl
+  :ensure t
+  :hook ((prog-mode . diff-hl-mode)
+         (org-mode . diff-hl-mode)
+         (magit-post-refresh . diff-hl-magit-post-refresh)))
+
 ;; Searching
 
 (use-package ag
   :ensure t
   :commands (ag ag-regexp ag-project))
 
-(use-package smex :ensure t)
+(use-package projectile
+  :ensure t
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :config
+  (setq projectile-enable-caching t
+        projectile-file-exists-remote-cache-expire nil))
+
+;; Completion
+
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode t))
+
+;; Analysis
+
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode))
+
+(use-package flyspell
+  :ensure t
+  :hook ((prog-mode . flyspell-prog-mode)
+         (text-mode . flyspell-mode)))
+
+(provide nil)
 
 
+;; Programming Modes
+
+(use-package markdown-mode :ensure t)
+(use-package yaml-mode :ensure t)
+
+;;; init.el ends here
