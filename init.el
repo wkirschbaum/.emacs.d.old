@@ -16,8 +16,10 @@
 (setq inhibit-startup-screen t)
 (setq visible-bell t)
 (global-hl-line-mode 1)
-(setq initial-frame-alist '((fullscreen . maximized)))
+
 (setq default-frame-alist '((fullscreen . maximized)))
+
+(setq-default frame-title-format '("%f [%m]"))
 
 ;; Line numbers
 (setq-default display-line-numbers-type 'visual
@@ -63,7 +65,18 @@
 (use-package smex
   :ensure t
   :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)))
+         ("M-X" . smex-major-mode-commands)
+         ("C-c C-c M-x" . execute-extended-command--last-typed)))
+
+;; Make space turn into dash like normal M-x
+(defadvice smex (around space-inserts-hyphen activate compile)
+  (let ((ido-cannot-complete-command 
+         `(lambda ()
+            (interactive)
+            (if (string= " " (this-command-keys))
+                (insert ?-)
+              (funcall ,ido-cannot-complete-command)))))
+    ad-do-it))
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump))
@@ -109,7 +122,9 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
-        projectile-file-exists-remote-cache-expire nil))
+        projectile-completion-system 'ido
+        projectile-file-exists-remote-cache-expire nil)
+  (projectile-mode +1))
 
 ;; Completion
 
@@ -132,10 +147,22 @@
 
 (provide nil)
 
+;; erc
+(use-package erc
+  :custom
+  (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
+  :config
+  (setq erc-echo-notices-in-minibuffer-flag t)
+  (setq erc-auto-reconnect nil)
+  (setq erc-lurker-hide-list '("JOIN" "QUIT"))
+  (setq erc-lurker-threshold-time 3600)
+  (setq erc-input-line-position -2))
 
-;; Programming Modes
+(defun erc-connect ()
+  (interactive)
+  (erc :server "irc.freenode.net" :port 6667 :nick "peirama"))
 
-(use-package markdown-mode :ensure t)
-(use-package yaml-mode :ensure t)
+(load "~/.emacs.d/org.el")
+(load "~/.emacs.d/programming.el")
 
 ;;; init.el ends here

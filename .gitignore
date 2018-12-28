@@ -3,3 +3,6 @@ eshell/
 autosave-save-list/
 smex-items
 *~
+/ido.last
+/projectile-bookmarks.eld
+/projectile.cache
