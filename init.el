@@ -58,8 +58,30 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package ido
+;; Ensure there is a way to only access open buffers
+(defun ido-switch-buffer-with-virtual-buffers ()
+  (interactive)
+  (let ((ido-use-virtual-buffers t))
+    (ido-switch-buffer)))
+
+(defun ido-switch-buffer-without-virtual-buffers ()
+  (interactive)
+  (let ((ido-use-virtual-buffers nil))
+    (ido-switch-buffer)))
+
+(use-package recentf
+  :bind (("C-x C-r" . recentf-open-files))
   :config
+  (setq recentf-max-menu-items 15)
+  (recentf-mode 1))
+
+(use-package ido
+  :bind (("C-x C-b" . ido-switch-buffer-with-virtual-buffers)
+         ("C-x b" . list-buffers))
+  :config
+  (setq ido-use-virtual-buffers t
+        ido-enable-flex-matching t
+        ido-everywhere t)
   (ido-mode t))
 
 (use-package smex
@@ -162,6 +184,18 @@
   (interactive)
   (erc :server "irc.freenode.net" :port 6667 :nick "peirama"))
 
+(use-package hydra :ensure t)
+(defhydra hydra-windmove (global-map "C-x C-o")
+  "movement"
+  ("o" other-window "other")
+  ("b" windmove-left "left")
+  ("f" windmove-right "right")
+  ("F" (lambda () (interactive) (split-window-right)) "split-right")
+  ("p" windmove-up "up")
+  ("n" windmove-down "down")
+  ("N" (lambda () (interactive) (split-window-below)) "split-down")
+  ("x" delete-window "delete"))
+         
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")
 
