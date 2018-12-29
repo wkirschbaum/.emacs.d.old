@@ -37,7 +37,7 @@
 (setq sentence-end-double-space nil)
 
 ;; Update the buffer if the file changes outside of emacs
-(global-auto-revert-mode t)
+(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
 
 ;; Do not generate extra files
 (setq make-backup-files nil)
