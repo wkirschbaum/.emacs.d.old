@@ -1,4 +1,4 @@
-;;; Init --- Initial file for my emacs configuration
+;; Init --- Initial file for my emacs configuration
 
 ;;; Code:
 
@@ -76,6 +76,7 @@
   (recentf-mode 1))
 
 (use-package ido
+  :demand t ;; demand for ido everywhere, since there is a bind
   :bind (("C-x C-b" . ido-switch-buffer-with-virtual-buffers)
          ("C-x b" . list-buffers))
   :config
@@ -198,7 +199,10 @@
   ("n" windmove-down "down")
   ("N" (lambda () (interactive) (split-window-below)) "split-down")
   ("x" delete-window "delete"))
-         
+
+;; Auth stuff
+(setq epg-gpg-program "gpg2")
+
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")
 
