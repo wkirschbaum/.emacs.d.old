@@ -58,6 +58,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package all-the-icons :ensure t)
+
 ;; Ensure there is a way to only access open buffers
 (defun ido-switch-buffer-with-virtual-buffers ()
   (interactive)
@@ -202,6 +204,8 @@
 
 ;; Auth stuff
 (setq epg-gpg-program "gpg2")
+(setq auth-sources
+      '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")

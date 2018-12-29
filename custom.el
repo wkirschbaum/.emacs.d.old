@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (intero haskell-mode yaml-mode markdown-mode hydra buffer-move flycheck company projectile ag diff-hl magit git-timemachine which-key smex use-package))))
+    (all-the-icons yaml-mode which-key use-package smex projectile markdown-mode magit intero hydra git-timemachine diff-hl buffer-move ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
