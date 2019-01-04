@@ -85,7 +85,7 @@
   (setq ido-use-virtual-buffers t
         ido-enable-flex-matching t
         ido-everywhere t)
-  (ido-mode t))
+  (ido-mode 1))
 
 (use-package smex
   :ensure t
@@ -206,6 +206,12 @@
 (setq epg-gpg-program "gpg2")
 (setq auth-sources
       '((:source "~/Dropbox/secrets/.authinfo.gpg")))
+
+(use-package org-pomodoro :ensure t)
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
 
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")
