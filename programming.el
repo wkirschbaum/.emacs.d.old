@@ -22,6 +22,11 @@
 
 (add-hook 'prog-mode (lambda () (setq truncate-lines t)))
 
+(use-package emmet-mode
+  :ensure t
+  :hook web-mode
+  :hook css-mode)
+
 (use-package haskell-mode :ensure t)
 (use-package intero
   :ensure t
@@ -37,4 +42,9 @@
 (use-package inf-ruby :ensure t
   :hook (ruby-mode . inf-ruby-minor-mode))
 
-(use-package rspec-mode :ensure t)
+(use-package rspec-mode
+  :ensure t
+  :config
+  (rspec-install-snippets))
+
+(use-package yari :ensure t)

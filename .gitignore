@@ -8,3 +8,6 @@ smex-items
 /projectile.cache
 /recentf
 url/
+/bookmarks
+session.*
+snippets/

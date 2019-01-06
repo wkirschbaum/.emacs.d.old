@@ -71,6 +71,10 @@
   (let ((ido-use-virtual-buffers nil))
     (ido-switch-buffer)))
 
+(use-package idomenu
+  :ensure t
+  :bind ("M-i" . idomenu))
+
 (use-package recentf
   :bind (("C-x C-r" . recentf-open-files))
   :config
@@ -92,16 +96,6 @@
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)
          ("C-c C-c M-x" . execute-extended-command--last-typed)))
-
-;; Make space turn into dash like normal M-x
-(defadvice smex (around space-inserts-hyphen activate compile)
-  (let ((ido-cannot-complete-command 
-         `(lambda ()
-            (interactive)
-            (if (string= " " (this-command-keys))
-                (insert ?-)
-              (funcall ,ido-cannot-complete-command)))))
-    ad-do-it))
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump))
@@ -212,6 +206,11 @@
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
+
+(use-package yasnippet
+  :ensure t
+  :hook (prog-mode . yas-global-mode))
+(use-package yasnippet-snippets :ensure t)
 
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")
