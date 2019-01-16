@@ -213,5 +213,6 @@
 
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/programming.el")
+(load "~/.emacs.d/functions.el")
 
 ;;; init.el ends here
