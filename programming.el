@@ -1,6 +1,7 @@
 (use-package smartparens
   :ensure t
-  :hook (prog-mode . smartparens-mode))
+  :config
+  (require 'smartparens-config))
 
 (use-package markdown-mode :ensure t)
 (use-package yaml-mode :ensure t)
