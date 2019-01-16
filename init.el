@@ -1,4 +1,4 @@
-;; Init --- Initial file for my emacs configuration
+; Init --- Initial file for my emacs configuration
 
 ;;; Code:
 
@@ -41,7 +41,6 @@
 
 ;; Do not generate extra files
 (setq make-backup-files nil)
-(setq auto-save-default nil)
 
 ;; Some editor help
 (winner-mode)
