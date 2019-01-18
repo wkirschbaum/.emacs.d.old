@@ -72,7 +72,8 @@
   :config
   (setq ido-use-virtual-buffers t
         ido-enable-flex-matching t
-        ido-everywhere t)
+        ido-everywhere t
+        ido-enable-tramp-completion nil)
   (ido-mode 1))
 
 (use-package smex
