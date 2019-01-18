@@ -6,49 +6,34 @@
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
-(setq custom-file "~/.emacs.d/custom.el")
 
-;; General Visual
+(setq custom-file "~/.emacs.d/custom.el"
+      inhibit-startup-screen t
+      visible-bell t
+      sentence-end-double-space nil
+      make-backup-files nil
+      default-frame-alist '((fullscreen . maximized)))
 
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(setq inhibit-startup-screen t)
-(setq visible-bell t)
-(global-hl-line-mode 1)
-
-(setq default-frame-alist '((fullscreen . maximized)))
-
-(setq-default frame-title-format '("%f [%m]"))
-
-;; Line numbers
-(setq-default display-line-numbers-type 'visual
+(setq-default apropos-sort-by-scores t
+              frame-title-format '("%f [%m]")
+              display-line-numbers-type 'visual
 	      display-line-numbers-current-absolute t
 	      display-line-numbers-width 4
-	      display-line-numbers-widen t)
+	      display-line-numbers-widen t
+              indent-tabs-mode nil)
 
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
-;; Prompts
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(global-hl-line-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; Behaviour
-(setq sentence-end-double-space nil)
-
-;; Update the buffer if the file changes outside of emacs
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
-
-;; Do not generate extra files
-(setq make-backup-files nil)
-
-;; Some editor help
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
-
-;; Do not use tabs
-(setq-default indent-tabs-mode nil)
 
 ;; Packages
 
@@ -211,7 +196,14 @@
   :hook (prog-mode . yas-global-mode))
 (use-package yasnippet-snippets :ensure t)
 
-(load "~/.emacs.d/org.el")
+(use-package define-word
+  :ensure t)
+
+(use-package nov
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
+
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 
