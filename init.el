@@ -175,7 +175,7 @@
 
 (defun erc-connect ()
   (interactive)
-  (erc :server "irc.freenode.net" :port 6667 :nick "peirama"))
+  (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama"))
 
 (use-package buffer-move :ensure t)
 (use-package hydra :ensure t)
