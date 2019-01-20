@@ -42,6 +42,7 @@
 
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
+(global-set-key (kbd "C-x C-r") 'find-file-read-only)
 
 ;; Packages
 
