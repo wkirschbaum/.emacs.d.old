@@ -34,12 +34,14 @@
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
-
 ;; Desktop Saving
 (desktop-save-mode 1)
 
 ;; GPG
 (setq epg-gpg-program "gpg2")
+
+;; Use hippie expand rather
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; Packages
 
@@ -177,7 +179,7 @@
 
 (use-package buffer-move :ensure t)
 (use-package hydra :ensure t)
-(defhydra hydra-windmove (global-map "C-x C-o")
+(defhydra hydra-windmove (global-map "C-x C-O")
   "movement"
   ("o" other-window "other")
   ("b" windmove-left "left")
@@ -217,13 +219,13 @@
 (use-package restclient
   :ensure t)
 
-(use-package helm-spotify-plus
-  :bind(("C-c s s" . helm-spotify-plus)
-        ("C-c s f" . helm-spotify-plus-next)
-        ("C-c s b" . helm-spotify-plus-previous)
-        ("C-c s p" . helm-spotify-plus-play)
-        ("C-c s g" . helm-spotify-plus-pause))
-  :ensure t)
+(use-package spotify
+  :ensure t
+  :bind (("C-c s n" . spotify-next)
+         ("C-c s p" . spotify-pause)
+         ("C-c s c" . spotify-current))
+  :config
+  (spotify-enable-song-notifications))
 
 (cadr (auth-source-user-and-password "spotify.com"))
 (use-package dired-filter
