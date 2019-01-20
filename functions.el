@@ -52,3 +52,21 @@
           (add-to-list 'symbol-names name)
           (add-to-list 'name-and-pos (cons name position))))))))
 (global-set-key "\M-i" 'ido-goto-symbol)
+
+(defun func-region (start end func)
+  "Run a FUNC over the region between START and END in the current buffer."
+  (save-excursion
+    (let ((text (delete-and-extract-region start end)))
+      (insert (funcall func text)))))
+
+(defun hex-region (start end)
+  "Url encode the region between START and END in the buffer."
+  (interactive "r")
+  (func-region start end #'url-hexify-string))
+
+(defun unhex-region (start end)
+  "Url decode the region between START and END in the buffer."
+  (interactive "r")
+  (func-region start end #'url-unhex-string))
+
+;;; END

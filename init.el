@@ -35,6 +35,12 @@
 (electric-indent-mode +1)
 (show-paren-mode 1)
 
+;; Desktop Saving
+(desktop-save-mode 1)
+
+;; GPG
+(setq epg-gpg-program "gpg2")
+
 ;; Packages
 
 (package-initialize)
@@ -207,6 +213,21 @@
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
+
+(use-package restclient
+  :ensure t)
+
+(use-package helm-spotify-plus
+  :bind(("C-c s s" . helm-spotify-plus)
+        ("C-c s f" . helm-spotify-plus-next)
+        ("C-c s b" . helm-spotify-plus-previous)
+        ("C-c s p" . helm-spotify-plus-play)
+        ("C-c s g" . helm-spotify-plus-pause))
+  :ensure t)
+
+(cadr (auth-source-user-and-password "spotify.com"))
+(use-package dired-filter
+  :ensure t)
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
