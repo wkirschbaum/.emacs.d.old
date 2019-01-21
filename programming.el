@@ -49,3 +49,8 @@
   (rspec-install-snippets))
 
 (use-package yari :ensure t)
+
+(use-package alchemist
+  :ensure t)
+
+;; END

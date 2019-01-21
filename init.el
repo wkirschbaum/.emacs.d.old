@@ -34,8 +34,6 @@
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
-;; Desktop Saving
-(desktop-save-mode 1)
 
 ;; GPG
 (setq epg-gpg-program "gpg2")
@@ -179,19 +177,20 @@
   (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama"))
 
 (use-package buffer-move :ensure t)
-(use-package hydra :ensure t)
-(defhydra hydra-windmove (global-map "C-x C-O")
-  "movement"
-  ("o" other-window "other")
-  ("b" windmove-left "left")
-  ("B" buf-move-left "buffer-left")
-  ("f" windmove-right "right")
-  ("F" (lambda () (interactive) (split-window-right)) "split-right")
-  ("p" windmove-up "up")
-  ("P" buf-move-up "buffer-up")
-  ("n" windmove-down "down")
-  ("N" (lambda () (interactive) (split-window-below)) "split-down")
-  ("x" delete-window "delete"))
+;; TODO: Find a better keybinding for this
+;; (use-package hydra :ensure t)
+;; (defhydra hydra-windmove (global-map "C-x C-o")
+;;   "movement"
+;;   ("o" other-window "other")
+;;   ("B" windmove-left "left")
+;;   ("B" buf-move-left "buffer-left")
+;;   ("f" windmove-right "right")
+;;   ("F" (lambda () (interactive) (split-window-right)) "split-right")
+;;   ("p" windmove-up "up")
+;;   ("P" buf-move-up "buffer-up")
+;;   ("n" windmove-down "down")
+;;   ("N" (lambda () (interactive) (split-window-below)) "split-down")
+;;   ("x" delete-window "delete"))
 
 ;; Auth stuff
 (setq epg-gpg-program "gpg2")
@@ -228,7 +227,6 @@
   :config
   (spotify-enable-song-notifications))
 
-(cadr (auth-source-user-and-password "spotify.com"))
 (use-package dired-filter
   :ensure t)
 
