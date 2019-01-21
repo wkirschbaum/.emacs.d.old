@@ -7,8 +7,7 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
-(setq custom-file "~/.emacs.d/custom.el"
-      inhibit-startup-screen t
+(setq inhibit-startup-screen t
       visible-bell t
       sentence-end-double-space nil
       make-backup-files nil
@@ -232,5 +231,8 @@
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ;;; init.el ends here
