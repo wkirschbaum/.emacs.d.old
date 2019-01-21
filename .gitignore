@@ -2,4 +2,5 @@
 !*.el
 !*/
 !/eshell/alias
+!/snippets/**/*
 elpa/**/*.el

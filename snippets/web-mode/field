@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: field
+# key: field
+# --
+
+<div class="field">
+  <strong>$1</strong>
+  <div class="control">
+    <%= $2 %>
+  </div>
+</div>$0
