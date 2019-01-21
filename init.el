@@ -231,6 +231,7 @@
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
+(load "~/.emacs.d/org.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
