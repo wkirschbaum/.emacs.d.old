@@ -83,7 +83,7 @@
         ido-use-filename-at-point 'guess
         ido-create-new-buffer 'always
         ido-ignore-extensions t
-        ido-enable-tramp-completion nil)
+        ido-enable-tramp-completion t)
   (ido-mode 1))
 
 (use-package smex
