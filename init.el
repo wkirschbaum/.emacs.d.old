@@ -35,7 +35,7 @@
 (show-paren-mode 1)
 
 ;; GPG
-(setq epg-gpg-program "gpg2")
+;; (setq epg-gpg-program "gpg2")
 
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
