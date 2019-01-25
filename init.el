@@ -20,6 +20,7 @@
 
 (setq visible-bell nil
       ring-bell-function 'flash-mode-line)
+
 (defun flash-mode-line ()
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil #'invert-face 'mode-line))
@@ -31,7 +32,6 @@
 	      display-line-numbers-width 4
 	      display-line-numbers-widen t
               indent-tabs-mode nil)
-
 ;
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -254,7 +254,7 @@
   ;; ask for nick, on mac peirama_ on other box peirama
 (defun erc-connect ()
   (interactive)
-  (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama_"))
+  (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
