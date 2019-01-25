@@ -4,3 +4,4 @@
 !/eshell/alias
 !/snippets/**/*
 elpa/**/*.el
+flycheck_init.el

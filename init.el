@@ -21,6 +21,7 @@
 	      display-line-numbers-widen t
               indent-tabs-mode nil)
 
+;
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
@@ -35,7 +36,8 @@
 (show-paren-mode 1)
 
 ;; GPG
-;; (setq epg-gpg-program "gpg2")
+;; if mac use, else use
+(custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
 
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
@@ -171,10 +173,6 @@
   (setq erc-lurker-threshold-time 3600)
   (setq erc-input-line-position -2))
 
-(defun erc-connect ()
-  (interactive)
-  (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama"))
-
 (use-package buffer-move :ensure t)
 ;; TODO: Find a better keybinding for this
 ;; (use-package hydra :ensure t)
@@ -232,6 +230,22 @@
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
+
+
+;; ---- If mac
+; if mac
+(setq-default ns-alternate-modifier 'super
+              ns-command-modifier 'meta)
+
+;; ask for nick, on mac peirama_ on other box peirama
+(defun erc-connect ()
+  (interactive)
+  (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama_"))
+
+(setq-default epg-gpg-program "/usr/local/bin/gpg")
+
+;; --- end if mac
+
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
