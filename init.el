@@ -223,28 +223,27 @@
 (use-package dired-filter
   :ensure t)
 
+(use-package zenburn-theme
+  :ensure t)
+
+(set-frame-font "DejaVu Sans Mono 14" nil t)
+
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
 
+(with-system darwin
+  (setq-default ns-alternate-modifier 'super
+                ns-command-modifier 'meta)
+  (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-initialize)))
 
-;; ---- If mac
-; if mac
-(setq-default ns-alternate-modifier 'super
-              ns-command-modifier 'meta)
-
-;; ask for nick, on mac peirama_ on other box peirama
+  ;; ask for nick, on mac peirama_ on other box peirama
 (defun erc-connect ()
   (interactive)
   (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama_"))
-
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-(exec-path-from-shell-initialize))
-
-;; --- end if mac
-
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
