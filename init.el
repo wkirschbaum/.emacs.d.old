@@ -251,7 +251,6 @@
     :config
     (exec-path-from-shell-initialize)))
 
-  ;; ask for nick, on mac peirama_ on other box peirama
 (defun erc-connect ()
   (interactive)
   (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
