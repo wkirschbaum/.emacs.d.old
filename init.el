@@ -35,10 +35,6 @@
 (electric-indent-mode +1)
 (show-paren-mode 1)
 
-;; GPG
-;; if mac use, else use
-(custom-set-variables '(epg-gpg-program  "/usr/local/bin/gpg"))
-
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "C-x C-r") 'find-file-read-only)
@@ -190,7 +186,7 @@
 ;;   ("x" delete-window "delete"))
 
 ;; Auth stuff
-(setq epg-gpg-program "gpg2")
+;; (setq epg-gpg-program "gpg2")
 (setq auth-sources
       '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
@@ -241,8 +237,6 @@
 (defun erc-connect ()
   (interactive)
   (erc-tls :server "irc.freenode.net" :port 6697 :nick "peirama_"))
-
-(setq-default epg-gpg-program "/usr/local/bin/gpg")
 
 (use-package exec-path-from-shell
   :ensure t
