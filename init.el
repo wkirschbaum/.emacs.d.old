@@ -32,7 +32,7 @@
 	      display-line-numbers-width 4
 	      display-line-numbers-widen t
               indent-tabs-mode nil)
-;
+
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
@@ -97,8 +97,7 @@
 (use-package smex
   :ensure t
   :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)
-         ("C-c C-c M-x" . execute-extended-command--last-typed)))
+         ("M-X" . smex-major-mode-commands)))
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump))
@@ -167,8 +166,6 @@
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
-(provide nil)
-
 ;; erc
 (use-package erc
   :custom
@@ -180,28 +177,7 @@
   (setq erc-lurker-threshold-time 3600)
   (setq erc-input-line-position -2))
 
-(use-package buffer-move :ensure t)
-;; TODO: Find a better keybinding for this
-;; (use-package hydra :ensure t)
-;; (defhydra hydra-windmove (global-map "C-x C-o")
-;;   "movement"
-;;   ("o" other-window "other")
-;;   ("B" windmove-left "left")
-;;   ("B" buf-move-left "buffer-left")
-;;   ("f" windmove-right "right")
-;;   ("F" (lambda () (interactive) (split-window-right)) "split-right")
-;;   ("p" windmove-up "up")
-;;   ("P" buf-move-up "buffer-up")
-;;   ("n" windmove-down "down")
-;;   ("N" (lambda () (interactive) (split-window-below)) "split-down")
-;;   ("x" delete-window "delete"))
-
-;; Auth stuff
-;; (setq epg-gpg-program "gpg2")
-(setq auth-sources
-      '((:source "~/Dropbox/secrets/.authinfo.gpg")))
-
-(use-package org-pomodoro :ensure t)
+(setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
 (use-package expand-region
   :ensure t
@@ -210,6 +186,7 @@
 (use-package yasnippet
   :ensure t
   :hook (prog-mode . yas-global-mode))
+
 (use-package yasnippet-snippets :ensure t)
 
 (use-package define-word
@@ -239,10 +216,6 @@
 
 (set-frame-font "DejaVu Sans Mono 14" nil t)
 
-(load "~/.emacs.d/programming.el")
-(load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/org.el")
-
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
                 ns-command-modifier 'meta)
@@ -251,9 +224,9 @@
     :config
     (exec-path-from-shell-initialize)))
 
-(defun erc-connect ()
-  (interactive)
-  (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
+(load "~/.emacs.d/programming.el")
+(load "~/.emacs.d/functions.el")
+(load "~/.emacs.d/org.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
