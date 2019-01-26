@@ -69,4 +69,8 @@
   (interactive "r")
   (func-region start end #'url-unhex-string))
 
+(defun erc-connect ()
+  (interactive)
+  (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
+
 ;;; END

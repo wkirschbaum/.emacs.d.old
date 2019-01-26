@@ -48,7 +48,7 @@
   :config
   (rspec-install-snippets))
 
-(use-package yari :ensure t)
+(use-package yari :ensure t) ;; ruby documentation
 
 (use-package alchemist
   :ensure t)
