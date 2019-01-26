@@ -4,3 +4,4 @@
 !/eshell/alias
 !/snippets/**/*
 elpa/**/*.el
+/custom.el
