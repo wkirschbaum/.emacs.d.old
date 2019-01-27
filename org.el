@@ -38,3 +38,5 @@
          :publishing-function (org-html-publish-to-html)
          :html-preamble nil
          :html-postamble nil)))
+
+(setq org-catch-invisible-edits 'error)
