@@ -214,7 +214,7 @@
 (use-package zenburn-theme
   :ensure t)
 
-(set-frame-font "DejaVu Sans Mono 14" nil t)
+(set-frame-font "DejaVu Sans Mono 12" nil t)
 
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
@@ -222,7 +222,8 @@
   (use-package exec-path-from-shell
     :ensure t
     :config
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize))
+  (set-frame-font "DejaVu Sans Mono 14" nil t))
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
