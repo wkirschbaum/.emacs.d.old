@@ -22,6 +22,7 @@
       ring-bell-function 'flash-mode-line)
 
 (defun flash-mode-line ()
+  "Flashes the mode-line."
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil #'invert-face 'mode-line))
 
@@ -57,7 +58,10 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package all-the-icons :ensure t)
+(use-package all-the-icons
+  :ensure t)
+
+;; --- START Searching and navigation
 
 ;; Ensure there is a way to only access open buffers
 (defun ido-switch-buffer-with-virtual-buffers ()
@@ -73,12 +77,6 @@
 (use-package idomenu
   :ensure t
   :bind ("M-i" . idomenu))
-
-(use-package recentf
-  :bind (("C-x C-r" . recentf-open-files))
-  :config
-  (setq recentf-max-menu-items 15)
-  (recentf-mode 1))
 
 (use-package ido
   :demand t ;; demand for ido everywhere, since there is a bind
@@ -98,6 +96,14 @@
   :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
+
+;; --- END Searching and navigation
+
+(use-package recentf
+  :bind (("C-x C-r" . recentf-open-files))
+  :config
+  (setq recentf-max-menu-items 15)
+  (recentf-mode 1))
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump))
@@ -140,7 +146,7 @@
 
 (use-package projectile
   :ensure t
-  :bind-keymap ("C-c p" . projectile-command-map)
+  :bind-keymap ("C-x p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
         projectile-completion-system 'ido
