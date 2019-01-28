@@ -224,12 +224,13 @@
 
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
-                ns-command-modifier 'meta)
+                ns-command-modifier 'meta
+                ns-option-modifier 'meta)
+
   (use-package exec-path-from-shell
     :ensure t
     :config
-    (exec-path-from-shell-initialize))
-  (set-frame-font "DejaVu Sans Mono 14" nil t))
+    (exec-path-from-shell-initialize)))
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
