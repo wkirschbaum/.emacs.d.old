@@ -13,6 +13,10 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+(add-hook 'org-mode-hook 'auto-fill-mode)
+
+(setq org-log-done 'time)
+
 (use-package org-journal
   :bind ("C-c C-j" . org-journal-new-entry)
   :config
