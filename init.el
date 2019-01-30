@@ -80,8 +80,7 @@
 
 (use-package ido
   :demand t ;; demand for ido everywhere, since there is a bind
-  :bind (("C-x C-b" . ido-switch-buffer-with-virtual-buffers)
-         ("C-x b" . list-buffers))
+  :bind (("C-x C" . ido-switch-buffer-with-virtual-buffers))
   :config
   (setq ido-use-virtual-buffers t
         ido-enable-flex-matching t
@@ -91,6 +90,17 @@
         ido-ignore-extensions t
         ido-enable-tramp-completion t)
   (ido-mode 1))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+  (ido-vertical-mode 1))
+
+(use-package ido-completing-read+
+  :ensure t
+  :config
+  (ido-ubiquitous-mode 1))
 
 (use-package smex
   :ensure t
