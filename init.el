@@ -37,6 +37,8 @@
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
