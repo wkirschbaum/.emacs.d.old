@@ -82,7 +82,6 @@
 
 (use-package ido
   :demand t ;; demand for ido everywhere, since there is a bind
-  :bind (("C-x C" . ido-switch-buffer-with-virtual-buffers))
   :config
   (setq ido-use-virtual-buffers t
         ido-enable-flex-matching t
@@ -90,7 +89,7 @@
         ido-use-filename-at-point 'guess
         ido-create-new-buffer 'always
         ido-ignore-extensions t
-        ido-enable-tramp-completion t)
+        ido-enable-trap-completion t)
   (ido-mode 1))
 
 (use-package ido-vertical-mode
@@ -142,7 +141,9 @@
 (use-package magit
   :demand t
   :ensure t
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (setq magit-completing-read-function 'magit-ido-completing-read))
 
 (use-package diff-hl
   :ensure t
