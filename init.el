@@ -14,7 +14,6 @@
      ,@body))
 
 (setq inhibit-startup-screen t
-      sentence-end-double-space nil
       make-backup-files nil
       default-frame-alist '((fullscreen . maximized)))
 
@@ -84,13 +83,19 @@
   :demand t ;; demand for ido everywhere, since there is a bind
   :config
   (setq ido-use-virtual-buffers t
-        ido-enable-flex-matching t
         ido-everywhere t
         ido-use-filename-at-point 'guess
         ido-create-new-buffer 'always
         ido-ignore-extensions t
         ido-enable-trap-completion t)
   (ido-mode 1))
+
+(use-package flx-ido
+  :ensure t
+  :config
+  (setq ido-enable-flex-matching t)
+  (setq ido-use-faces nil)
+  (flx-ido-mode))
 
 (use-package ido-completing-read+
   :ensure t
@@ -101,6 +106,7 @@
   :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
+
 
 ;; --- END Searching and navigation
 
@@ -224,6 +230,9 @@
 (use-package dired-filter
   :ensure t)
 
+(use-package browse-at-remote
+  :ensure t)
+
 (use-package zenburn-theme
   :ensure t)
 
@@ -233,7 +242,6 @@
   (setq-default ns-alternate-modifier 'super
                 ns-command-modifier 'meta
                 ns-option-modifier 'meta)
-
   (use-package exec-path-from-shell
     :ensure t
     :config

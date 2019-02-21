@@ -19,6 +19,7 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-enable-auto-pairing t)
   (setq web-mode-enable-auto-expanding t)
+  (setq web-mode-enable-current-column-highlight t)
   (setq web-mode-enable-css-colorization t))
 
 (add-hook 'prog-mode (lambda () (setq truncate-lines t)))
@@ -53,4 +54,6 @@
 (use-package alchemist
   :ensure t)
 
+(use-package terraform-mode
+  :ensure t)
 ;; END
