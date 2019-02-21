@@ -145,6 +145,9 @@
   :config
   (setq magit-completing-read-function 'magit-ido-completing-read))
 
+(use-package forge
+  :ensure t)
+
 (use-package diff-hl
   :ensure t
   :hook ((prog-mode . diff-hl-mode)
