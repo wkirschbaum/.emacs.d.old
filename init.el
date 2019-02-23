@@ -239,6 +239,8 @@
 (use-package zenburn-theme
   :ensure t)
 
+(set-face-background hl-line-face "gray22")
+
 (set-frame-font "DejaVu Sans Mono 12" nil t)
 
 (with-system darwin
