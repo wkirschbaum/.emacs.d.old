@@ -4,8 +4,6 @@
 !/eshell/alias
 !/snippets/**/*
 elpa/**/*.el
-<<<<<<< HEAD
 /custom.el
-=======
 flycheck_init.el
->>>>>>> 5f685205c7de0038e4333592a053c8559747d8af
+transient/
