@@ -2,7 +2,8 @@
 
 ;;; Code:
 
-(package-initialize)
+(if (version< emacs-version "27.0")
+    (package-initialize))
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
