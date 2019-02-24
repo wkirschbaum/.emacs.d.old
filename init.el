@@ -1,4 +1,6 @@
 ; Init --- Initial file for my emacs configuration
+;; Version 27.0.50
+
 
 ;;; Code:
 
@@ -177,7 +179,6 @@
   (global-company-mode t))
 
 ;; Analysis
-
 (use-package flycheck
   :ensure t
   :config
@@ -236,12 +237,17 @@
 (use-package browse-at-remote
   :ensure t)
 
-(use-package zenburn-theme
-  :ensure t)
+;; (use-package zenburn-theme
+;;   :ensure t)
 
-(set-face-background hl-line-face "gray22")
+;; (set-face-background hl-line-face "gray22")
+;; (set-frame-font "DejaVu Sans Mono 12" nil t)
 
-(set-frame-font "DejaVu Sans Mono 12" nil t)
+(use-package nord-theme
+  :ensure t
+  :config
+  (load-theme 'nord t))
+
 
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
