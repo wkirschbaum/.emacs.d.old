@@ -49,6 +49,8 @@
   :config
   (rspec-install-snippets))
 
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
 (use-package robe
   :ensure t
   :config
