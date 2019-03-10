@@ -49,7 +49,17 @@
   :config
   (rspec-install-snippets))
 
+(use-package robe
+  :ensure t
+  :config
+  (global-robe-mode))
+
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
 (use-package yari :ensure t) ;; ruby documentation
+(use-package rubocop :ensure t)
+(use-package feature-mode :ensure t) ;; cucumber
 
 (use-package alchemist
   :ensure t)
