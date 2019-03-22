@@ -12,31 +12,7 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
-(defmacro with-system (type &rest body)
-  "Evaluate BODY if `system-type' equals TYPE."
-  (declare (indent defun))
-  `(when (eq system-type ',type)
-     ,@body))
 
-(setq inhibit-startup-screen t
-      make-backup-files nil
-      default-frame-alist '((fullscreen . maximized)))
-
-(setq visible-bell nil
-      ring-bell-function 'flash-mode-line)
-
-(defun flash-mode-line ()
-  "Flashes the mode-line."
-  (invert-face 'mode-line)
-  (run-with-timer 0.1 nil #'invert-face 'mode-line))
-
-(setq-default apropos-sort-by-scores t
-              frame-title-format '("%f [%m]")
-              display-line-numbers-type 'visual
-	      display-line-numbers-current-absolute t
-	      display-line-numbers-width 4
-	      display-line-numbers-widen t
-              indent-tabs-mode nil)
 
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
