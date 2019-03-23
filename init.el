@@ -79,7 +79,9 @@
 ;; --- END Searching and navigation
 
 (use-package dired
-  :bind ("C-x C-j" . dired-jump))
+  :bind ("C-x C-j" . dired-jump)
+  :config
+  (setq dired-dwim-target t))
 
 (use-package which-key
   :ensure t
@@ -209,20 +211,6 @@
 (use-package browse-at-remote
   :ensure t)
 
-;; (use-package zenburn-theme
-;;   :ensure t)
-
-;; (set-face-background hl-line-face "gray22")
-;; (set-frame-font "DejaVu Sans Mono 12" nil t)
-
-(use-package nord-theme
-  :ensure t
-  :config
-  (setq nord-comment-brightness 2)
-  (setq nord-region-highlight "snowstorm")
-  (load-theme 'nord t)
-  (set-frame-font "DejaVu Sans Mono 12" nil t))
-
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
                 ns-command-modifier 'meta
@@ -249,6 +237,7 @@
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
+(load "~/.emacs.d/themes.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
