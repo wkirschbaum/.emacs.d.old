@@ -17,4 +17,10 @@
   (interactive)
   (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
 
-;;; END
+
+(defun prs/kill-this-buffer ()
+  "Kill the current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+(global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
