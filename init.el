@@ -48,10 +48,14 @@
 (menu-bar-mode -1)
 (global-hl-line-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
+
+(setq-default auto-revert-verbose nil)
+(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
+(add-hook 'dired-mode-hook 'auto-revert-mode) ;; Tell dired to update on change
+(setq-default wdired-allow-to-change-permissions t) ;; Allow permission editing
 
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
@@ -227,6 +231,20 @@
     :ensure t
     :config
     (exec-path-from-shell-initialize)))
+
+(use-package eyebrowse
+  :ensure t
+  :config
+  (eyebrowse-mode t))
+
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-M-=") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-M--") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-M-=") 'mc/mark-all-like-this))
+
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
