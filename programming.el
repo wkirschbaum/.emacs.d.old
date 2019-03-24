@@ -3,7 +3,11 @@
   :config
   (require 'smartparens-config))
 
-(use-package markdown-mode :ensure t)
+(use-package markdown-mode
+  :ensure t
+  :config
+  (setq markdown-command "/usr/bin/pandoc"))
+(use-package markdown-preview-mode :ensure t)
 (use-package yaml-mode :ensure t)
 (use-package dockerfile-mode :ensure t)
 
