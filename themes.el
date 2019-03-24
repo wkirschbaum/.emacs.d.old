@@ -15,7 +15,6 @@
   (setq nord-comment-brightness 2)
   (setq nord-region-highlight "snowstorm")
   (load-theme 'nord t)
-  (setq-default cursor-type 'bar)
   (set-frame-font "DejaVu Sans Mono 12" nil t))
 
 ;; (use-package solarized-theme

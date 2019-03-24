@@ -119,9 +119,6 @@
   :ensure t
   :commands (ag ag-regexp ag-project))
 
-(use-package counsel-projectile
-  :ensure t)
-
 (use-package ivy
   :ensure t
   :config
@@ -142,8 +139,14 @@
   :config
   (setq projectile-enable-caching t
         projectile-completion-system 'ivy
-        projectile-file-exists-remote-cache-expire nil)
+        projectile-file-exists-remote-cache-expire nil
+        projectile-sort-order 'recently-active)
   (projectile-mode +1))
+
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode))
 
 ;; Completion
 
@@ -175,10 +178,6 @@
   (setq erc-input-line-position -2))
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
-
-(use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
 
 (use-package yasnippet
   :ensure t
@@ -225,13 +224,17 @@
   :config
   (eyebrowse-mode t))
 
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
 (use-package multiple-cursors
   :ensure t
   :config
   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  (global-set-key (kbd "C-M-=") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-M--") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-M-=") 'mc/mark-all-like-this))
+  (global-set-key (kbd "C-M-[") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-M-]") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-M-=") 'mc/mark-all-like-this))
 
 
 (load "~/.emacs.d/programming.el")

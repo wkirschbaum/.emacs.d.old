@@ -8,3 +8,4 @@ elpa/**/*.el
 flycheck_init.el
 transient/
 flycheck_programming.el
+/.mc-lists.el
