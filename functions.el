@@ -24,3 +24,26 @@
   (kill-buffer (current-buffer)))
 
 (global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
+
+(defun whk/get-url-content (url)
+  "Make a get request to the URL and return the body."
+  (with-current-buffer
+      (url-retrieve-synchronously url)
+    (prog2
+        (let ((end-of-header (progn
+                             (goto-char (point-min))
+                             (re-search-forward "^$")
+                             (point))))
+             (delete-region (point-min) end-of-header))
+        (buffer-string)
+      (kill-buffer))))
+
+(defun whk/write-url-content ()
+  "Yank the content of a URL in the buffer."
+  (interactive)
+  (insert
+   (whk/get-url-content (read-string "url: "))))
+
+;; https://raw.githubusercontent.com/raxod502/straight.el/develop/.gitignore
+
+;; end here
