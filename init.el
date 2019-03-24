@@ -1,6 +1,8 @@
 ; Init --- Initial file for my emacs configuration
 ;; Version 27.0.50
 
+;;; Commentary:
+;; None really
 
 ;;; Code:
 
@@ -46,10 +48,14 @@
 (menu-bar-mode -1)
 (global-hl-line-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
+
+(setq-default auto-revert-verbose nil)
+(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
+(add-hook 'dired-mode-hook 'auto-revert-mode) ;; Tell dired to update on change
+(setq-default wdired-allow-to-change-permissions t) ;; Allow permission editing
 
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
@@ -65,65 +71,17 @@
 (use-package all-the-icons
   :ensure t)
 
-;; --- START Searching and navigation
-
-;; Ensure there is a way to only access open buffers
-(defun ido-switch-buffer-with-virtual-buffers ()
-  (interactive)
-  (let ((ido-use-virtual-buffers t))
-    (ido-switch-buffer)))
-
-(defun ido-switch-buffer-without-virtual-buffers ()
-  (interactive)
-  (let ((ido-use-virtual-buffers nil))
-    (ido-switch-buffer)))
-
-(use-package idomenu
-  :ensure t
-  :bind ("M-i" . idomenu))
-
-(use-package ido
-  :demand t ;; demand for ido everywhere, since there is a bind
-  :config
-  (setq ido-use-virtual-buffers t
-        ido-everywhere t
-        ido-use-filename-at-point 'guess
-        ido-create-new-buffer 'always
-        ido-ignore-extensions t
-        ido-enable-trap-completion t)
-  (ido-mode 1))
-
-(use-package flx-ido
-  :ensure t
-  :config
-  (setq ido-enable-flex-matching t)
-  (setq ido-use-faces nil)
-  (flx-ido-mode))
-
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-ubiquitous-mode 1))
-
 (use-package smex
   :ensure t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
 
-
 ;; --- END Searching and navigation
 
-(use-package recentf
-  :bind (("C-x C-r" . recentf-open-files))
-  :config
-  (setq recentf-max-menu-items 15)
-  (recentf-mode 1))
-
 (use-package dired
-  :bind ("C-x C-j" . dired-jump))
-
-(use-package imenu
-  :bind ("M-i" . imenu))
+  :bind ("C-x C-j" . dired-jump)
+  :config
+  (setq dired-dwim-target t))
 
 (use-package which-key
   :ensure t
@@ -144,9 +102,7 @@
 (use-package magit
   :demand t
   :ensure t
-  :bind ("C-x g" . magit-status)
-  :config
-  (setq magit-completing-read-function 'magit-ido-completing-read))
+  :bind ("C-x g" . magit-status))
 
 (use-package forge
   :ensure t)
@@ -163,14 +119,34 @@
   :ensure t
   :commands (ag ag-regexp ag-project))
 
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq enable-recursive-minibuffers t)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "M-i") 'counsel-imenu)
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+
 (use-package projectile
   :ensure t
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
-        projectile-completion-system 'ido
-        projectile-file-exists-remote-cache-expire nil)
+        projectile-completion-system 'ivy
+        projectile-file-exists-remote-cache-expire nil
+        projectile-sort-order 'recently-active)
   (projectile-mode +1))
+
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode))
 
 ;; Completion
 
@@ -203,10 +179,6 @@
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
-(use-package expand-region
-  :ensure t
-  :bind ("C-=" . er/expand-region))
-
 (use-package yasnippet
   :ensure t
   :hook (prog-mode . yas-global-mode))
@@ -238,22 +210,6 @@
 (use-package browse-at-remote
   :ensure t)
 
-;; (use-package zenburn-theme
-;;   :ensure t)
-
-;; (set-face-background hl-line-face "gray22")
-;; (set-frame-font "DejaVu Sans Mono 12" nil t)
-
-(use-package nord-theme
-  :ensure t
-  :config
-  (setq nord-comment-brightness 2)
-  (setq nord-region-highlight "snowstorm")
-  (load-theme 'nord t)
-  (set-frame-font "DejaVu Sans Mono 12" nil t))
-
-
-
 (with-system darwin
   (setq-default ns-alternate-modifier 'super
                 ns-command-modifier 'meta
@@ -263,9 +219,28 @@
     :config
     (exec-path-from-shell-initialize)))
 
+(use-package eyebrowse
+  :ensure t
+  :config
+  (eyebrowse-mode t))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-M-[") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-M-]") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-M-=") 'mc/mark-all-like-this))
+
+
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
+(load "~/.emacs.d/themes.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
