@@ -12,13 +12,13 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
 
-(server-start)
-
 (defmacro with-system (type &rest body)
   "Evaluate BODY if `system-type' equals TYPE."
   (declare (indent defun))
   `(when (eq system-type ',type)
      ,@body))
+
+(server-start)
 
 (setq inhibit-startup-screen t
       make-backup-files nil
@@ -35,9 +35,9 @@
 (setq-default apropos-sort-by-scores t
               frame-title-format '("%f [%m]")
               display-line-numbers-type 'visual
-	      display-line-numbers-current-absolute t
-	      display-line-numbers-width 4
-	      display-line-numbers-widen t
+              display-line-numbers-current-absolute t
+              display-line-numbers-width 4
+              display-line-numbers-widen t
               indent-tabs-mode nil)
 
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
@@ -45,14 +45,18 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      (scroll-bar-mode -1)
+      (tool-bar-mode -1)
+      (menu-bar-mode -1)))
+
 (global-hl-line-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (winner-mode)
 (electric-indent-mode +1)
 (show-paren-mode 1)
+(column-number-mode 1)
 
 (setq-default auto-revert-verbose nil)
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
@@ -125,9 +129,9 @@
   :ensure t
   :config
   (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
   (setq enable-recursive-minibuffers t)
+  (setq magit-completing-read-function 'ivy-completing-read)
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -221,23 +225,9 @@
     :config
     (exec-path-from-shell-initialize)))
 
-(use-package eyebrowse
-  :ensure t
-  :config
-  (eyebrowse-mode t))
-
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
-
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  (global-set-key (kbd "C-M-[") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-M-]") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-M-=") 'mc/mark-all-like-this))
-
 
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
