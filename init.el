@@ -58,6 +58,11 @@
 (show-paren-mode 1)
 (column-number-mode 1)
 
+;; Do not jump when scrolling up or down
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+
 (setq-default auto-revert-verbose nil)
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode) ;; Tell dired to update on change
