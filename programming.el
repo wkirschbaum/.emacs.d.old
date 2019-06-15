@@ -39,6 +39,8 @@
   :config
   (intero-global-mode 1))
 
+(use-package bundler :ensure t)
+
 ;; Ruby and Rails
 (use-package projectile-rails
   :ensure t

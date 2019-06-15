@@ -59,9 +59,9 @@
 (column-number-mode 1)
 
 ;; Do not jump when scrolling up or down
-(setq scroll-step 1)
-(setq scroll-conservatively 10000)
-(setq auto-window-vscroll nil)
+;; (setq scroll-step 1)
+;; (setq scroll-conservatively 10000)
+;; (setq auto-window-vscroll nil)
 
 (setq-default auto-revert-verbose nil)
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
@@ -179,14 +179,15 @@
 
 ;; erc
 (use-package erc
-  :custom
-  (erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
   :config
   (setq erc-echo-notices-in-minibuffer-flag t)
   (setq erc-auto-reconnect nil)
-  (setq erc-lurker-hide-list '("JOIN" "QUIT"))
-  (setq erc-lurker-threshold-time 3600)
+  ;; (setq erc-lurker-hide-list '("JOIN" "QUIT"))
+  ;; (setq erc-lurker-threshold-time 3600)
   (setq erc-input-line-position -2))
+
+(use-package znc
+  :ensure t)
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
@@ -234,12 +235,31 @@
   :ensure t
   :bind ("C-=" . er/expand-region))
 
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+
+(use-package rainbow-mode
+  :ensure t)
+
+(use-package weechat
+  :ensure t
+  :config
+  (setq weechat-color-list '(unspecified "black" "dim gray" "dark red" "red"
+                                       "dark green" "green" "brown"
+                                       "orange" "dark blue" "blue"
+                                       "dark magenta" "magenta" "dark cyan"
+                                       "royal blue" "dark gray" "gray")))
+
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/themes.el")
+(load "~/.emacs.d/startup.el")
+
+(load "~/.emacs.d/external/confluence-ox.el")
+
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-
 ;;; init.el ends here

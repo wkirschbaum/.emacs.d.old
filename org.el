@@ -5,7 +5,7 @@
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/Dropbox/Org/notes.org" "Notes") "* %?\n%U\n%a")
         ("a" "Appointment" entry (file+headline "~/Dropbox/Org/calendar.org" "Appointments") "* %?\n")
-        ("t" "Todo" entry (file+headline "~/Dropbox/Org/notes.org" "Todos") "* TODO %?")))
+        ("t" "Todo" entry (file+headline "~/Dropbox/Org/todo.org" "Today") "* TODO %?")))
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "DOING(b)" "|" "DONE(d)")))
