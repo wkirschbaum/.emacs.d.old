@@ -137,7 +137,7 @@
   (setq ivy-count-format "(%d/%d) ")
   (setq enable-recursive-minibuffers t)
   (setq magit-completing-read-function 'ivy-completing-read)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (global-set-key (kbd "C-c r") 'ivy-resume)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (global-set-key (kbd "C-c k") 'counsel-ag)
@@ -180,14 +180,11 @@
 ;; erc
 (use-package erc
   :config
-  (setq erc-echo-notices-in-minibuffer-flag t)
-  (setq erc-auto-reconnect nil)
-  ;; (setq erc-lurker-hide-list '("JOIN" "QUIT"))
-  ;; (setq erc-lurker-threshold-time 3600)
+  (setq-default erc-echo-notices-in-minibuffer-flag t)
+  (setq erc-rename-buffers t)
+  (setq erc-lurker-hide-list '("JOIN" "QUIT"))
+  (setq erc-lurker-threshold-time 3600)
   (setq erc-input-line-position -2))
-
-(use-package znc
-  :ensure t)
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 

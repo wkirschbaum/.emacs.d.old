@@ -15,7 +15,7 @@
 
 (defun erc-connect ()
   (interactive)
-  (erc-tls :server "irc.freenode.net" :port 6697 :nick (read-string "Enter nick: ")))
+  (erc-tls :server "irc.wilhelmbot.com" :port 33110 :nick "peirama"))
 
 
 (defun prs/kill-this-buffer ()

@@ -75,3 +75,15 @@
 (use-package terraform-mode
   :ensure t)
 ;; END
+
+;; Python
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable))
+
+(use-package pyenv-mode
+  :ensure t
+  :config
+  (pyenv-mode))
+;; END
