@@ -172,8 +172,8 @@
 (use-package dockerfile-mode :straight t)
 
 (use-package web-mode
-  :straight
-    :mode (("\\.html?\\'" . web-mode)
+  :straight t
+  :mode (("\\.html?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html.eex\\'" . web-mode)
          )
