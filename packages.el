@@ -252,4 +252,11 @@
 (use-package dashboard
   :straight t
   :config
+  (setq dashboard-banner-logo-title "This might actually be a good day.")
+  (setq dashboard-startup-banner 'official)
+  (setq dashboard-center-content t)
+  (setq dashboard-items '((agenda . 10)
+                          (bookmarks . 5)
+                          (projects . 5)))
+  (setq show-week-agenda-p t)
   (dashboard-setup-startup-hook))
