@@ -1,18 +1,18 @@
 (use-package smartparens
-  :ensure t
+  :straight t
   :config
   (require 'smartparens-config))
 
 (use-package markdown-mode
-  :ensure t
+  :straight t
   :config
   (setq markdown-command "/usr/bin/pandoc"))
-(use-package markdown-preview-mode :ensure t)
-(use-package yaml-mode :ensure t)
-(use-package dockerfile-mode :ensure t)
+(use-package markdown-preview-mode :straight t)
+(use-package yaml-mode :straight t)
+(use-package dockerfile-mode :straight t)
 
 (use-package web-mode
-  :ensure t
+  :straight
     :mode (("\\.html?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html.eex\\'" . web-mode)
@@ -29,61 +29,61 @@
 (add-hook 'prog-mode (lambda () (setq truncate-lines t)))
 
 (use-package emmet-mode
-  :ensure t
+  :straight t
   :hook web-mode
   :hook css-mode)
 
-(use-package haskell-mode :ensure t)
+(use-package haskell-mode :straight t)
 (use-package intero
-  :ensure t
+  :straight t
   :config
   (intero-global-mode 1))
 
-(use-package bundler :ensure t)
+(use-package bundler :straight t)
 
 ;; Ruby and Rails
+(use-package inf-ruby
+  :straight t
+  :hook (ruby-mode . inf-ruby-minor-mode))
+
+(use-package inflections :straight t)
+(use-package rake :straight t)
 (use-package projectile-rails
-  :ensure t
+  :straight t
   :config
   (projectile-rails-global-mode))
 
-(use-package inf-ruby :ensure t
-  :hook (ruby-mode . inf-ruby-minor-mode))
-
 (use-package rspec-mode
-  :ensure t
+  :straight t
   :config
   (rspec-install-snippets))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (use-package robe
-  :ensure t
+  :straight t
   :config
   (global-robe-mode))
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(use-package yari :ensure t) ;; ruby documentation
-(use-package rubocop :ensure t)
-(use-package feature-mode :ensure t) ;; cucumber
+(use-package yari :straight t) ;; ruby documentation
+(use-package rubocop :straight t)
+(use-package feature-mode :straight t) ;; cucumber
 
-(use-package alchemist
-  :ensure t)
-
-(use-package terraform-mode
-  :ensure t)
+(use-package alchemist :straight t)
+(use-package terraform-mode :straight t)
 ;; END
 
 ;; Python
 (use-package elpy
-  :ensure t
+  :straight t
   :config
   (elpy-enable))
 
 (use-package pyenv-mode
-  :ensure t
+  :straight t
   :config
   (pyenv-mode))
 ;; END
