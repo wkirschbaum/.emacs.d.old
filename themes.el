@@ -1,26 +1,22 @@
-;; (use-package zenburn-theme
-;;   :ensure t)
+; Themes --- All Theme related configuration
 
-;; (set-face-background hl-line-face "gray22")
-;; (set-frame-font "DejaVu Sans Mono 12" nil t)
+;;; Commentary:
+;; This is my personal configuration.
 
-;; (use-package monokai-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'monokai t))
+;;; Code:
+(progn
+  (straight-use-package 'zenburn-theme)
+  (straight-use-package 'monokai-theme)
+  (straight-use-package 'solarized-theme)
+  (straight-use-package 'dracula-theme)
+  (straight-use-package 'spacemacs-theme))
 
 ;; (use-package nord-theme
-;;   :ensure t
+;;   :straight t
 ;;   :config
 ;;   (setq nord-comment-brightness 2)
 ;;   (setq nord-region-highlight "snowstorm")
 ;;   (load-theme 'nord t)
 ;;   (set-frame-font "DejaVu Sans Mono 12" nil t))
 
-;; (use-package solarized-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'solarized-dark t))
-
-;; (use-package dracula-theme
-;;   :ensure t)
+;;; themes.el ends here

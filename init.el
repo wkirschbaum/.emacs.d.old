@@ -240,12 +240,16 @@
 (load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
-(load "~/.emacs.d/themes.el")
 (load "~/.emacs.d/startup.el")
+(load "~/.emacs.d/themes.el")
 
 (load "~/.emacs.d/external/confluence-ox.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
+
 (if (file-exists-p custom-file)
     (load custom-file))
+
+(load-theme 'spacemacs-dark)
+
 ;;; init.el ends here
