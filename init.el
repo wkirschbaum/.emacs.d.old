@@ -1,5 +1,4 @@
 ; Init --- Initial file for my emacs configuration
-;; Version 27.0.50
 
 ;;; Commentary:
 ;; This is my personal configuration.
