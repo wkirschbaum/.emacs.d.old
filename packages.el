@@ -94,7 +94,6 @@
   :straight t
   :config
   (global-flycheck-mode))
-
 (use-package flyspell
   :straight t
   :hook ((prog-mode . flyspell-prog-mode)
@@ -258,3 +257,10 @@
   :config
   (emms-standard)
   (emms-default-players))
+
+(use-package nyan-mode
+  :straight t
+  :config
+  (setq nyan-wavy-trail t)
+  (setq nyan-bar-length 24)
+  (nyan-mode))
