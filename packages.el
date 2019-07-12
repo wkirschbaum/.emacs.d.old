@@ -127,14 +127,6 @@
 
 (use-package restclient :straight t)
 
-(use-package spotify
-  :straight t
-  :bind (("C-c s n" . spotify-next)
-         ("C-c s p" . spotify-pause)
-         ("C-c s c" . spotify-current))
-  :config
-  (spotify-enable-song-notifications))
-
 (use-package dired-filter :straight t)
 
 (use-package browse-at-remote :straight t)
@@ -260,3 +252,9 @@
                           (projects . 5)))
   (setq show-week-agenda-p t)
   (dashboard-setup-startup-hook))
+
+(use-package emms
+  :straight t
+  :config
+  (emms-standard)
+  (emms-default-players))
