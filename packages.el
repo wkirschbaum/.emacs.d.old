@@ -59,6 +59,8 @@
   (ivy-mode 1)
   (setq ivy-count-format "(%d/%d) ")
   (setq enable-recursive-minibuffers t)
+  (setq ivy-initial-inputs-alist nil)  ;; no default regex
+  (setq ivy-use-virtual-buffers t)
   (setq magit-completing-read-function 'ivy-completing-read)
   (global-set-key (kbd "C-c r") 'ivy-resume)
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -264,3 +266,12 @@
   (setq nyan-wavy-trail t)
   (setq nyan-bar-length 24)
   (nyan-mode))
+
+(use-package nnreddit
+  :straight t
+  :config
+  (add-to-list 'gnus-secondary-select-methods
+               '(nnreddit "")))
+
+(use-package ledger-mode
+  :straight t)
