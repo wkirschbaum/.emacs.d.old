@@ -15,7 +15,7 @@
 
 (defun erc-connect ()
   (interactive)
-  (erc-tls :server "irc.wilhelmbot.com" :port 33110 :nick "peirama"))
+  (erc-tls :server "chat.freenode.net" :nick "peirama"))
 
 
 (defun prs/kill-this-buffer ()
