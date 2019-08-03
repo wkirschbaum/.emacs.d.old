@@ -1,20 +1,5 @@
 ;; Packages
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'use-package)
-
 (use-package all-the-icons
   :straight t)
 
@@ -172,7 +157,7 @@
 (use-package markdown-mode
   :straight t
   :config
-  (setq markdown-command "/usr/bin/pandoc"))
+  (setq markdown-command "/usr/local/bin/pandoc"))
 (use-package markdown-preview-mode :straight t)
 (use-package yaml-mode :straight t)
 (use-package dockerfile-mode :straight t)
