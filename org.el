@@ -32,15 +32,4 @@
       european-calendar-style 't
       diary-file "~/Dropbox/Org/diary")
 
-;; Blogging
-(setq org-publish-project-alist
-      '(("blog"
-         :base-directory "~/Dropbox/Org/blog/"
-         :base-extension "org"
-         :html-extension "html"
-         :publishing-directory "~/public_html/"
-         :publishing-function (org-html-publish-to-html)
-         :html-preamble nil
-         :html-postamble nil)))
-
 (setq org-catch-invisible-edits 'error)
