@@ -26,17 +26,19 @@
   `(when (eq system-type ',type)
      ,@body))
 
-(setq inhibit-startup-screen t
-      make-backup-files nil
-      default-frame-alist '((fullscreen . maximized)))
-
-(setq visible-bell nil
-      ring-bell-function 'flash-mode-line)
+(setq inhibit-startup-screen t)
+(setq default-frame-alist '((fullscreen . maximized)))
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 (defun flash-mode-line ()
   "Flashes the mode-line."
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil #'invert-face 'mode-line))
+
+(setq visible-bell nil)
+(setq ring-bell-function 'flash-mode-line)
 
 (setq-default apropos-sort-by-scores t
               frame-title-format '("%f [%m]")
@@ -48,7 +50,6 @@
 
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (if (display-graphic-p)
@@ -64,11 +65,6 @@
 (show-paren-mode 1)
 (column-number-mode 1)
 
-;; Do not jump when scrolling up or down
-;; (setq scroll-step 1)
-;; (setq scroll-conservatively 10000)
-;; (setq auto-window-vscroll nil)
-
 (setq-default auto-revert-verbose nil)
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode) ;; Tell dired to update on change
@@ -78,12 +74,15 @@
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "C-x C-r") 'find-file-read-only)
 
+;; Stop and debug on error
+;; (setq debug-on-error t)
+;; (setq debug-on-quit t)
+
 (load "~/.emacs.d/packages.el")
-(load "~/.emacs.d/themes.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
-
 (load "~/.emacs.d/external/confluence-ox.el")
+(load "~/.emacs.d/themes.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 
