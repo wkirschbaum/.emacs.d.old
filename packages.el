@@ -276,3 +276,11 @@
 
 (use-package groovy-mode
   :straight t)
+
+(use-package elfeed
+  :straight t
+  :config
+  (global-set-key (kbd "C-x w") 'elfeed)
+  (setq elfeed-feeds
+        '("https://planet.emacslife.com/atom.xml")))
+
