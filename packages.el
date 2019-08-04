@@ -284,3 +284,8 @@
   (setq elfeed-feeds
         '("https://planet.emacslife.com/atom.xml")))
 
+(use-package ox-hugo
+  :straight t
+  :after ox
+  :config
+  (setq org-tag-group-re "")) ;; this variable does not exist for some reason and breaks dashboard
