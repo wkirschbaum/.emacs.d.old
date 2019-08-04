@@ -282,7 +282,9 @@
   :config
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq elfeed-feeds
-        '("https://planet.emacslife.com/atom.xml")))
+        '("https://planet.emacslife.com/atom.xml"
+          "https://www.ruby-lang.org/en/feeds/news.rss"
+          "https://rubyweekly.com/rss"))
 
 (use-package ox-hugo
   :straight t
