@@ -292,9 +292,3 @@
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss")))
-
-;; (use-package ox-hugo
-;;   :straight t
-;;   :after ox
-;;   :config
-;;   (setq org-tag-group-re "")) ;; this variable does not exist for some reason and breaks dashboard
