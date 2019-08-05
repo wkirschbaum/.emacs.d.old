@@ -94,6 +94,7 @@
   :straight t
   :config
   (global-flycheck-mode))
+
 (use-package flyspell
   :straight t
   :hook ((prog-mode . flyspell-prog-mode)
@@ -113,7 +114,13 @@
 
 (use-package yasnippet
   :straight t
-  :hook (prog-mode . yas-global-mode))
+  :hook (prog-mode . yas-global-mode)
+  :config
+  (setq yas-verbosity 1)
+  (setq yas-wrap-around-region t))
+
+(use-package yasnippet-snippets
+  :straight t)
 
 (use-package yasnippet-snippets :straight t)
 
@@ -243,7 +250,7 @@
 (use-package dashboard
   :straight t
   :config
-  (setq dashboard-banner-logo-title "This might actually be a good day.")
+  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
   (setq dashboard-startup-banner 'official)
   (setq dashboard-center-content t)
   (setq dashboard-items '((agenda . 10)
@@ -284,10 +291,10 @@
   (setq elfeed-feeds
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
-          "https://rubyweekly.com/rss"))
+          "https://rubyweekly.com/rss")))
 
-(use-package ox-hugo
-  :straight t
-  :after ox
-  :config
-  (setq org-tag-group-re "")) ;; this variable does not exist for some reason and breaks dashboard
+;; (use-package ox-hugo
+;;   :straight t
+;;   :after ox
+;;   :config
+;;   (setq org-tag-group-re "")) ;; this variable does not exist for some reason and breaks dashboard
