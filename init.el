@@ -5,20 +5,9 @@
 
 ;;; Code:
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(straight-use-package 'use-package)
+;; Encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 
 (defmacro with-system (type &rest body)
   "Evaluate BODY if `system-type' equals TYPE."
@@ -83,21 +72,37 @@
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "C-x C-r") 'find-file-read-only)
 
+;; eshell
+(add-hook 'eshell-preoutput-filter-functions
+          'ansi-color-filter-apply)
+
 ;; Stop and debug on error
 ;; (setq debug-on-error t)
 ;; (setq debug-on-quit t)
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(if (file-exists-p custom-file)
+    (load custom-file))
 
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/external/confluence-ox.el")
 (load "~/.emacs.d/themes.el")
-
-(setq custom-file "~/.emacs.d/custom.el")
-
-(if (file-exists-p custom-file)
-    (load custom-file))
-
-(load-theme 'spacemacs-dark)
 
 ;;; init.el ends here

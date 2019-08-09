@@ -265,3 +265,23 @@
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss")))
+
+(use-package telega
+  :straight t
+  :commands (telega)
+  :config
+  (setq telega-use-notifications t)
+  (add-hook 'telega-chat-mode-hook (lambda ()
+    (setq company-backends '(telega-company-emoji))
+    (company-mode 1)))
+  :defer t)
+
+;; (use-package unicode-fonts
+;;   :straight t
+;;   :config
+;;   (unicode-fonts-setup))
+
+(use-package alert
+  :straight t)
+
+(alert "This is an alert")
