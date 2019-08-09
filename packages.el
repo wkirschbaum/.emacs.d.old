@@ -1,4 +1,4 @@
-;; Packages
+;; ;; Packages
 
 (use-package all-the-icons
   :straight t)
@@ -7,8 +7,6 @@
   :straight t
   :bind (("M-x" . smex)
          ("M-X" . smex-major-mode-commands)))
-
-;; --- END Searching and navigation
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
@@ -26,7 +24,6 @@
   (add-hook 'prog-mode 'whitespace-mode)
   (setq whitespace-style '(face tabs tab-mark trailing empty)))
 
-;; Source control
 (use-package git-timemachine
   :straight t
   :defer t)
@@ -44,8 +41,6 @@
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (magit-post-refresh . diff-hl-magit-post-refresh)))
-
-;; Searching
 
 (use-package ag
   :straight t
@@ -82,14 +77,11 @@
   :config
   (counsel-projectile-mode))
 
-;; Completion
-
 (use-package company
   :straight t
   :config
   (global-company-mode t))
 
-;; Analysis
 (use-package flycheck
   :straight t
   :config
@@ -122,37 +114,24 @@
 (use-package yasnippet-snippets
   :straight t)
 
-(use-package yasnippet-snippets :straight t)
-
-(use-package define-word :straight t)
-
 (use-package nov
   :straight t
   :config
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
 
 (use-package restclient :straight t)
-
 (use-package dired-filter :straight t)
 
 (use-package browse-at-remote :straight t)
 
-(with-system darwin
-  (setq-default ns-alternate-modifier 'super
-                ns-command-modifier 'meta
-                ns-option-modifier 'meta)
-  (use-package exec-path-from-shell
+(use-package exec-path-from-shell
     :straight t
     :config
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize))
 
 (use-package expand-region
   :straight t
   :bind ("C-=" . er/expand-region))
-
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 25)
 
 (use-package rainbow-mode :straight t)
 
@@ -271,12 +250,6 @@
   (setq nyan-wavy-trail t)
   (setq nyan-bar-length 24)
   (nyan-mode))
-
-(use-package nnreddit
-  :straight t
-  :config
-  (add-to-list 'gnus-secondary-select-methods
-               '(nnreddit "")))
 
 (use-package ledger-mode
   :straight t)

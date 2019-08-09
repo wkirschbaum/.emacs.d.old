@@ -26,6 +26,11 @@
   `(when (eq system-type ',type)
      ,@body))
 
+(with-system darwin
+  (setq-default ns-alternate-modifier 'super
+                ns-command-modifier 'meta
+                ns-option-modifier 'meta))
+
 (setq inhibit-startup-screen t)
 (setq default-frame-alist '((fullscreen . maximized)))
 (setq make-backup-files nil)
@@ -64,6 +69,10 @@
 (electric-indent-mode +1)
 (show-paren-mode 1)
 (column-number-mode 1)
+
+(recentf-mode 1)
+(setq-default recentf-max-menu-items 25)
+(setq-default recentf-max-saved-items 25)
 
 (setq-default auto-revert-verbose nil)
 (global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
