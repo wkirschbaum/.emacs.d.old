@@ -1,5 +1,8 @@
 ;; ;; Packages
 
+;; Possible packages to use
+;; https://github.com/ahungry/fast-scroll
+
 ;; It is important that this gets loaded before any other package hooking into org mode
 (use-package org
   :straight t)
