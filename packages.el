@@ -86,12 +86,6 @@
   :config
   (global-flycheck-mode))
 
-;; (use-package flycheck-indicator
-;;   :straight t
-;;   :config
-;;   (eval-after-load "flycheck"
-;;   '(add-hook 'flycheck-mode-hook 'flycheck-indicator-mode)))
-
 (use-package flyspell
   :straight t
   :hook ((prog-mode . flyspell-prog-mode)
@@ -281,17 +275,11 @@
     (company-mode 1)))
   :defer t)
 
-;; Have this before any other org related packages
-;; (use-package org
-;;   :straight t)
-
 (use-package ox-reveal
   :straight t
   :config
   (setq Org-Reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
   (setq Org-Reveal-title-slide nil))
-
-;; For some reason, ox-package break org mode
 
 (use-package helpful
   :straight t
