@@ -1,12 +1,11 @@
 ;; ;; Packages
 
-(use-package all-the-icons
+;; It is important that this gets loaded before any other package hooking into org mode
+(use-package org
   :straight t)
 
-(use-package smex
-  :straight t
-  :bind (("M-x" . smex)
-         ("M-X" . smex-major-mode-commands)))
+(use-package all-the-icons
+  :straight t)
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
@@ -86,6 +85,12 @@
   :straight t
   :config
   (global-flycheck-mode))
+
+;; (use-package flycheck-indicator
+;;   :straight t
+;;   :config
+;;   (eval-after-load "flycheck"
+;;   '(add-hook 'flycheck-mode-hook 'flycheck-indicator-mode)))
 
 (use-package flyspell
   :straight t
@@ -276,12 +281,26 @@
     (company-mode 1)))
   :defer t)
 
-;; (use-package unicode-fonts
-;;   :straight t
-;;   :config
-;;   (unicode-fonts-setup))
+;; Have this before any other org related packages
+;; (use-package org
+;;   :straight t)
 
-(use-package alert
-  :straight t)
+(use-package ox-reveal
+  :straight t
+  :config
+  (setq Org-Reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+  (setq Org-Reveal-title-slide nil))
 
-(alert "This is an alert")
+;; For some reason, ox-package break org mode
+
+(use-package helpful
+  :straight t
+  :config
+  (global-set-key (kbd "C-h f") #'helpful-callable)
+  (global-set-key (kbd "C-h v") #'helpful-variable)
+  (global-set-key (kbd "C-h k") #'helpful-key)
+  (global-set-key (kbd "C-c C-d") #'helpful-at-point)
+  (global-set-key (kbd "C-h C") #'helpful-command)
+  (global-set-key (kbd "C-h F") #'helpful-function)
+  (setq counsel-describe-function-function #'helpful-callable)
+  (setq counsel-describe-variable-function #'helpful-variable))
