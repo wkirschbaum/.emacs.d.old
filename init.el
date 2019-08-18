@@ -26,6 +26,9 @@
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
 
+(setq-default display-time-default-load-average nil)
+(display-time-mode t)
+
 (defun flash-mode-line ()
   "Flashes the mode-line."
   (invert-face 'mode-line)
@@ -100,9 +103,13 @@
     (load custom-file))
 
 (load "~/.emacs.d/packages.el")
+;; (load "~/.emacs.d/exwm.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
+(load "~/.emacs.d/gnus.el")
 (load "~/.emacs.d/external/confluence-ox.el")
 (load "~/.emacs.d/themes.el")
+
+(gnus)
 
 ;;; init.el ends here

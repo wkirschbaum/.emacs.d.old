@@ -4,10 +4,14 @@
 ;; https://github.com/ahungry/fast-scroll
 
 ;; It is important that this gets loaded before any other package hooking into org mode
-(use-package org
-  :straight t)
+;; (use-package org
+;;   :straight t)
 
 (use-package all-the-icons
+  :straight t)
+
+;; Ensures most used M-x commands on top
+(use-package smex
   :straight t)
 
 (use-package dired
@@ -228,17 +232,17 @@
 ;;   (pyenv-mode))
 ;; END
 
-(use-package dashboard
-  :straight t
-  :config
-  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
-  (setq dashboard-startup-banner 'official)
-  (setq dashboard-center-content t)
-  (setq dashboard-items '((agenda . 10)
-                          (bookmarks . 5)
-                          (projects . 5)))
-  (setq show-week-agenda-p t)
-  (dashboard-setup-startup-hook))
+;; (use-package dashboard
+;;   :straight t
+;;   :config
+;;   (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
+;;   (setq dashboard-startup-banner 'official)
+;;   (setq dashboard-center-content t)
+;;   (setq dashboard-items '((agenda . 10)
+;;                           (bookmarks . 5)
+;;                           (projects . 5)))
+;;   (setq show-week-agenda-p t)
+;;   (dashboard-setup-startup-hook))
 
 (use-package emms
   :straight t
@@ -266,7 +270,8 @@
   (setq elfeed-feeds
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
-          "https://rubyweekly.com/rss")))
+          "https://rubyweekly.com/rss"
+          "https://wilhelmbot.com/feed.xml")))
 
 (use-package telega
   :straight t
@@ -278,11 +283,11 @@
     (company-mode 1)))
   :defer t)
 
-(use-package ox-reveal
-  :straight t
-  :config
-  (setq Org-Reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
-  (setq Org-Reveal-title-slide nil))
+;; (use-package ox-reveal
+;;   :straight t
+;;   :config
+;;   (setq Org-Reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+;;   (setq Org-Reveal-title-slide nil))
 
 (use-package helpful
   :straight t
@@ -295,3 +300,12 @@
   (global-set-key (kbd "C-h F") #'helpful-function)
   (setq counsel-describe-function-function #'helpful-callable)
   (setq counsel-describe-variable-function #'helpful-variable))
+
+(use-package easy-jekyll
+  :straight t
+  :init
+  (setq easy-jekyll-basedir "~/projects/wkirschbaum/blog")
+  (setq easy-jekyll-url "https://wilhelmbot.com")
+  (setq easy-jekyll-root "")
+  (setq easy-jekyll-previewtime "300")
+  :bind ("C-c C-e" . easy-jekyll))
