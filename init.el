@@ -110,6 +110,4 @@
 (load "~/.emacs.d/external/confluence-ox.el")
 (load "~/.emacs.d/themes.el")
 
-(gnus)
-
 ;;; init.el ends here

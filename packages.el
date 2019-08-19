@@ -316,7 +316,6 @@
 (use-package excorporate
   :straight t
   :config
-  (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
-
-(use-package calfw
-  :straight t)
+  (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx")))
+  (excorporate-diary-enable)
+  (excorporate))
