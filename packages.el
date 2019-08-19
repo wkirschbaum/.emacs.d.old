@@ -232,17 +232,17 @@
 ;;   (pyenv-mode))
 ;; END
 
-;; (use-package dashboard
-;;   :straight t
-;;   :config
-;;   (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
-;;   (setq dashboard-startup-banner 'official)
-;;   (setq dashboard-center-content t)
-;;   (setq dashboard-items '((agenda . 10)
-;;                           (bookmarks . 5)
-;;                           (projects . 5)))
-;;   (setq show-week-agenda-p t)
-;;   (dashboard-setup-startup-hook))
+(use-package dashboard
+  :straight t
+  :config
+  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
+  (setq dashboard-startup-banner 'official)
+  (setq dashboard-center-content t)
+  (setq dashboard-items '((agenda . 10)
+                          (bookmarks . 5)
+                          (projects . 5)))
+  (setq show-week-agenda-p t)
+  (dashboard-setup-startup-hook))
 
 (use-package emms
   :straight t
