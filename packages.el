@@ -283,6 +283,9 @@
     (company-mode 1)))
   :defer t)
 
+(use-package alert
+  :straight t)
+
 ;; (use-package ox-reveal
 ;;   :straight t
 ;;   :config
@@ -309,3 +312,11 @@
   (setq easy-jekyll-root "")
   (setq easy-jekyll-previewtime "300")
   :bind ("C-c C-e" . easy-jekyll))
+
+(use-package excorporate
+  :straight t
+  :config
+  (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
+
+(use-package calfw
+  :straight t)
