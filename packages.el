@@ -149,9 +149,13 @@
 (use-package markdown-mode
   :straight t
   :config
+  (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/local/bin/pandoc"))
+
 (use-package markdown-preview-mode :straight t)
+
 (use-package yaml-mode :straight t)
+
 (use-package dockerfile-mode :straight t)
 
 (use-package web-mode
