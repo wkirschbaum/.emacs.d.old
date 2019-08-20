@@ -110,8 +110,7 @@
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
-(use-package yasnippet
-  :straight t
+(use-package yasnippet  :straight t
   :hook (prog-mode . yas-global-mode)
   :config
   (setq yas-verbosity 1)
@@ -317,9 +316,9 @@
   (setq easy-jekyll-previewtime "300")
   :bind ("C-c C-e" . easy-jekyll))
 
-(use-package excorporate
-  :straight t
-  :config
-  (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx")))
-  (excorporate-diary-enable)
-  (excorporate))
+;; (use-package excorporate
+;;   :straight t
+;;   :config
+;;   (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx")))
+;;   (excorporate-diary-enable)
+;;   (excorporate))
