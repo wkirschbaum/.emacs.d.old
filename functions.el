@@ -23,7 +23,7 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
-(global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
+;; (global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
 
 (defun whk/get-url-content (url)
   "Make a get request to the URL and return the body."
