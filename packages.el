@@ -150,7 +150,7 @@
   :straight t
   :config
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
-  (setq markdown-command "/usr/local/bin/pandoc"))
+  (setq markdown-command "/usr/bin/pandoc"))
 
 (use-package markdown-preview-mode :straight t)
 

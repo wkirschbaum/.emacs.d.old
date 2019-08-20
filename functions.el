@@ -15,7 +15,7 @@
 
 (defun erc-connect ()
   (interactive)
-  (erc-tls :server "chat.freenode.net" :nick "peirama"))
+  (erc-tls :server "irc.wilhelmbot.com" :port "1555" :nick "peirama"))
 
 
 (defun prs/kill-this-buffer ()
@@ -43,7 +43,5 @@
   (interactive)
   (insert
    (whk/get-url-content (read-string "url: "))))
-
-;; https://raw.githubusercontent.com/raxod502/straight.el/develop/.gitignore
 
 ;; end here
