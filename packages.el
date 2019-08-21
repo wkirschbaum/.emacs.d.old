@@ -322,3 +322,13 @@
 ;;   (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx")))
 ;;   (excorporate-diary-enable)
 ;;   (excorporate))
+
+(use-package tramp
+  :config
+  (setq tramp-default-method "ssh")
+  (setq remote-file-name-inhibit-cache nil)
+  (setq tramp-completion-reread-directory-timeout nil)
+  (setq vc-ignore-dir-regexp
+        (format "%s\\|%s"
+                vc-ignore-dir-regexp
+                tramp-file-name-regexp)))
