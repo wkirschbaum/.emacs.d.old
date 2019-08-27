@@ -5,6 +5,7 @@
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/Dropbox/Org/notes.org" "Notes") "* %?\n%U\n%a")
         ("c" "Code" entry (file+headline "~/Dropbox/Org/codes.org" "Unsorted") "* %?\n  %a")
+        ("p" "People" entry (file+headline "~/Dropbox/Org/people.org" "Unsorted") "* %?\n%U\n")
         ("a" "Appointment" entry (file+headline "~/Dropbox/Org/calendar.org" "Appointments") "* %?\n")
         ("t" "Todo" entry (file+headline "~/Dropbox/Org/todo.org" "Today") "* TODO %?")))
 

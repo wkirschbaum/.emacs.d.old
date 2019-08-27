@@ -202,6 +202,7 @@
 (use-package rspec-mode
   :straight t
   :config
+  (setq-default rspec-use-spring-when-possible nil)
   (rspec-install-snippets))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
@@ -332,3 +333,8 @@
         (format "%s\\|%s"
                 vc-ignore-dir-regexp
                 tramp-file-name-regexp)))
+
+(use-package coverage
+  :straight t
+  :config
+  (global-set-key (kbd "C-c , ,") #'coverage-mode))
