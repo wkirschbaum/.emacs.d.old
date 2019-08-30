@@ -107,6 +107,7 @@
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/gnus.el")
+(load "~/.emacs.d/stickywindows.el")
 (load "~/.emacs.d/external/confluence-ox.el")
 (load "~/.emacs.d/themes.el")
 

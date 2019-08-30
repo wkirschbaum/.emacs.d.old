@@ -24,6 +24,9 @@
   :config
   (which-key-mode 1))
 
+(use-package define-word
+  :straight t)
+
 (use-package whitespace
   :straight t
   :config
@@ -37,7 +40,10 @@
 (use-package magit
   :straight t
   :demand t
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (setq magit-repository-directories '(("~/projects/" . 2)))
+  (setq magit-revision-show-gravatars 'author))
 
 (use-package forge
   :straight t)
@@ -75,6 +81,7 @@
   (setq projectile-enable-caching t
         projectile-completion-system 'ivy
         projectile-file-exists-remote-cache-expire nil
+        projectile-project-search-path '("~/projects")
         projectile-sort-order 'recently-active)
   (projectile-mode +1))
 
@@ -82,6 +89,33 @@
   :straight t
   :config
   (counsel-projectile-mode))
+
+(use-package ibuffer-projectile
+  :straight t
+  :config)
+
+(use-package ibuffer
+  :config
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (add-hook 'ibuffer-hook
+    (lambda ()
+      (ibuffer-projectile-set-filter-groups)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic))))
+  (setq ibuffer-formats
+      '((mark modified read-only " "
+              (name 18 18 :left :elide)
+              " "
+              (size 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " "
+              project-relative-file))))
+
+(use-package minions
+  :straight t
+  :config
+  (minions-mode 1))
 
 (use-package company
   :straight t
@@ -118,11 +152,6 @@
 
 (use-package yasnippet-snippets
   :straight t)
-
-(use-package nov
-  :straight t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
 
 (use-package restclient :straight t)
 (use-package dired-filter :straight t)
