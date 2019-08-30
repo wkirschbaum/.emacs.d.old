@@ -60,7 +60,7 @@
 (setq-default recentf-max-saved-items 50)
 
 (save-place-mode 1)
-(setq save-place-file "~/.emacs.d/var/saveplace")
+(setq save-place-file "~/.emacs.d/saveplace")
 
 (set-default 'cursor-in-non-selected-windows 'hollow)
 

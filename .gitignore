@@ -3,7 +3,7 @@
 !*/
 !/eshell/alias
 !/snippets/**/*
-/elpa/**/*.el
+/elpa
 /transient/
 /flycheck_*.el
 /custom.el
