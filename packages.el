@@ -88,6 +88,8 @@
         projectile-completion-system 'ivy
         projectile-file-exists-remote-cache-expire nil
         projectile-sort-order 'recently-active
+        projectile-dynamic-mode-line t
+        projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
         projectile-indexing-method 'hybrid)
   (projectile-mode +1))
 
@@ -95,6 +97,11 @@
   :ensure t
   :config
   (counsel-projectile-mode))
+
+(use-package projectile-rails
+  :ensure t
+  :config
+  (projectile-rails-global-mode))
 
 (use-package ibuffer
   :bind(("C-x C-b" . ibuffer))
@@ -113,7 +120,8 @@
 (use-package minions
   :ensure t
   :config
-  (setq minions-mode-line-lighter "{*}")
+  (setq minions-mode-line-lighter "{*}"
+        minions-direct '(projectile-mode))
   (minions-mode 1))
 
 (use-package company
@@ -218,7 +226,7 @@
 (use-package rspec-mode
   :ensure t
   :config
-  (setq-default rspec-use-spring-when-possible nil)
+  ;; (setq-default rspec-use-spring-when-possible nil)
   (rspec-install-snippets))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
