@@ -4,10 +4,6 @@
 !/eshell/alias
 !/snippets/**/*
 elpa/**/*.el
-/custom.el
-flycheck_init.el
 transient/
-flycheck_programming.el
-/.mc-lists.el
-straight/**/*
-var/
+flycheck_*.el
+custom.el
