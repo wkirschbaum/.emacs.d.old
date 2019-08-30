@@ -10,16 +10,14 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-(use-package no-littering
-  :ensure t)
-
+(use-package no-littering :ensure t)
 (use-package recentf
   :config
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory))
 
-(use-package amx
-  :ensure t)
+(use-package flx :ensure t)
+(use-package amx :ensure t)
 
 (eval-when-compile
   (require 'use-package))
@@ -95,13 +93,12 @@
   (setq projectile-enable-caching t
         projectile-completion-system 'ivy
         projectile-file-exists-remote-cache-expire nil
-        projectile-project-search-path '("~/projects/")
-        projectile-sort-order 'recently-active)
+        projectile-sort-order 'recently-active
+        projectile-indexing-method 'hybrid)
   (projectile-mode +1))
 
 (use-package counsel-projectile
   :ensure t
-  :after (ivy counsel projectile)
   :config
   (counsel-projectile-mode))
 
@@ -303,32 +300,31 @@
 
 (use-package helpful
   :ensure t
+  :bind(("C-h f" . helpful-callable)
+        ("C-h v" . helpful-variable)
+        ("C-h k" . helpful-key)
+        ("C-c C-d" . helpful-at-point)
+        ("C-h C" . helpful-command)
+        ("C-h F" . helpful-function))
   :config
-  (global-set-key (kbd "C-h f") #'helpful-callable)
-  (global-set-key (kbd "C-h v") #'helpful-variable)
-  (global-set-key (kbd "C-h k") #'helpful-key)
-  (global-set-key (kbd "C-c C-d") #'helpful-at-point)
-  (global-set-key (kbd "C-h C") #'helpful-command)
-  (global-set-key (kbd "C-h F") #'helpful-function)
-  (setq counsel-describe-function-function #'helpful-callable)
-  (setq counsel-describe-variable-function #'helpful-variable))
+  (setq counsel-describe-function-function #'helpful-callable
+        counsel-describe-variable-function #'helpful-variable))
 
 (use-package easy-jekyll
   :ensure t
   :init
-  (setq easy-jekyll-basedir "~/projects/wkirschbaum/blog")
-  (setq easy-jekyll-url "https://wilhelmbot.com")
-  (setq easy-jekyll-root "")
-  (setq easy-jekyll-previewtime "300")
+  (setq easy-jekyll-basedir "~/projects/wkirschbaum/blog"
+        easy-jekyll-url "https://wilhelmbot.com"
+        easy-jekyll-root ""
+        easy-jekyll-previewtime "300")
   :bind ("C-c C-e" . easy-jekyll))
 
 (use-package tramp
   :config
-  (setq tramp-default-method "ssh")
-  (setq remote-file-name-inhibit-cache nil)
-  (setq tramp-completion-reread-directory-timeout nil)
-  (setq vc-ignore-dir-regexp
-        (format "%s\\|%s"
+  (setq tramp-default-method "ssh"
+        remote-file-name-inhibit-cache nil
+        tramp-completion-reread-directory-timeout nil
+        vc-ignore-dir-regexp (format "%s\\|%s"
                 vc-ignore-dir-regexp
                 tramp-file-name-regexp)))
 
