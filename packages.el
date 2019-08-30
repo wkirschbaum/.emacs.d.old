@@ -41,8 +41,8 @@
   :ensure t)
 
 (use-package whitespace
+  :hook (prog-mode . whitespace-mode)
   :config
-  (add-hook 'prog-mode 'whitespace-mode)
   (setq whitespace-style '(face tabs tab-mark trailing empty)))
 
 (use-package git-timemachine
@@ -54,8 +54,8 @@
   :demand t
   :bind ("C-x g" . magit-status)
   :config
-  (setq magit-repository-directories '(("~/projects/" . 2)))
-  (setq magit-revision-show-gravatars 'author))
+  (setq magit-repository-directories '(("~/projects/" . 2))
+        magit-revision-show-gravatars 'author))
 
 (use-package forge
   :ensure t)
@@ -72,22 +72,20 @@
 
 (use-package counsel
   :ensure t
-  :config
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
-  (global-set-key (kbd "M-i") 'counsel-imenu)
-  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+  :bind(("M-x" . counsel-M-x)
+        ("C-x C-f" . counsel-find-file)
+        ("C-c k" . counsel-ag)
+        ("M-i" . counsel-imenu)))
 
 (use-package ivy
   :ensure t
+  :bind(("C-c r" . ivy-resume))
   :config
-  (setq ivy-count-format "(%d/%d) ")
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-initial-inputs-alist nil)  ;; no default regex
-  (setq ivy-use-virtual-buffers t)
-  (setq magit-completing-read-function 'ivy-completing-read)
-  (global-set-key (kbd "C-c r") 'ivy-resume)
+  (setq ivy-count-format "(%d/%d) "
+        enable-recursive-minibuffers t
+        ivy-initial-inputs-alist nil ;; no default regex
+        ivy-use-virtual-buffers t
+        magit-completing-read-function 'ivy-completing-read)
   (ivy-mode 1))
 
 (use-package projectile
@@ -108,13 +106,13 @@
   (counsel-projectile-mode))
 
 (use-package ibuffer
+  :bind(("C-x C-b" . ibuffer))
   :config
   (setq ibuffer-display-summary nil)
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
   :hook ibuffer . (lambda ()
-		    (ibuffer-projectile-set-filter-groups)
-		    (unless (eq ibuffer-sorting-mode 'recency)
-		      (ibuffer-do-sort-by-recency))))
+                    (ibuffer-projectile-set-filter-groups)
+                    (unless (eq ibuffer-sorting-mode 'recency)
+                      (ibuffer-do-sort-by-recency))))
 
 (use-package ibuffer-projectile
   :ensure t

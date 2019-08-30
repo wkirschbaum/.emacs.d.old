@@ -1,3 +1,10 @@
+;;; System -- My system settings
+
+;;; Commentary:
+;; This is my personal configuration.
+
+;;; Code:
+
 ;; Encoding
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
@@ -53,7 +60,7 @@
 (setq-default recentf-max-saved-items 50)
 
 (save-place-mode 1)
-(setq save-place-file "~/.emacs.d/saveplace")
+(setq save-place-file "~/.emacs.d/var/saveplace")
 
 (set-default 'cursor-in-non-selected-windows 'hollow)
 
@@ -71,3 +78,5 @@
 ;; eshell
 (add-hook 'eshell-preoutput-filter-functions
           'ansi-color-filter-apply)
+
+;;; system.el ends here
