@@ -10,12 +10,6 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-(use-package no-littering :ensure t)
-(use-package recentf
-  :config
-  (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory))
-
 (use-package flx :ensure t)
 (use-package amx :ensure t)
 
