@@ -1,18 +1,23 @@
 ;; ;; Packages
 
-;; Possible packages to use
-;; https://github.com/ahungry/fast-scroll
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; It is important that this gets loaded before any other package hooking into org mode
-;; (use-package org
-;;   :straight t)
+(use-package no-littering
+  :ensure t)
+
+(use-package recentf
+  :config
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
+
+
+(eval-when-compile
+  (require 'use-package))
 
 (use-package all-the-icons
-  :straight t)
-
-;; Ensures most used M-x commands on top
-(use-package smex
-  :straight t)
+  :ensure t)
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
@@ -20,25 +25,24 @@
   (setq dired-dwim-target t))
 
 (use-package which-key
-  :straight t
+  :ensure t
   :config
   (which-key-mode 1))
 
 (use-package define-word
-  :straight t)
+  :ensure t)
 
 (use-package whitespace
-  :straight t
   :config
   (add-hook 'prog-mode 'whitespace-mode)
   (setq whitespace-style '(face tabs tab-mark trailing empty)))
 
 (use-package git-timemachine
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package magit
-  :straight t
+  :ensure t
   :demand t
   :bind ("C-x g" . magit-status)
   :config
@@ -46,20 +50,20 @@
   (setq magit-revision-show-gravatars 'author))
 
 (use-package forge
-  :straight t)
+  :ensure t)
 
 (use-package diff-hl
-  :straight t
+  :ensure t
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 (use-package ag
-  :straight t
+  :ensure t
   :commands (ag ag-regexp ag-project))
 
 (use-package ivy
-  :straight t
+  :ensure t
   :config
   (ivy-mode 1)
   (setq ivy-count-format "(%d/%d) ")
@@ -75,7 +79,7 @@
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
 
 (use-package projectile
-  :straight t
+  :ensure t
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
@@ -86,12 +90,13 @@
   (projectile-mode +1))
 
 (use-package counsel-projectile
-  :straight t
+  :ensure t
+  :after (projectile)
   :config
   (counsel-projectile-mode))
 
 (use-package ibuffer-projectile
-  :straight t
+  :ensure t
   :config)
 
 (use-package ibuffer
@@ -113,28 +118,26 @@
               project-relative-file))))
 
 (use-package minions
-  :straight t
+  :ensure t
   :config
   (minions-mode 1))
 
 (use-package company
-  :straight t
+  :ensure t
   :config
   (global-company-mode t))
 
 (use-package flycheck
-  :straight t
+  :ensure t
   :config
   (global-flycheck-mode))
 
 (use-package flyspell
-  :straight t
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
 ;; erc
 (use-package erc
-  :straight t
   :config
   (setq-default erc-echo-notices-in-minibuffer-flag t)
   (setq erc-rename-buffers t)
@@ -144,52 +147,49 @@
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
-(use-package yasnippet  :straight t
+(use-package yasnippet  :ensure t
   :hook (prog-mode . yas-global-mode)
   :config
   (setq yas-verbosity 1)
   (setq yas-wrap-around-region t))
 
 (use-package yasnippet-snippets
-  :straight t)
-
-(use-package restclient
-  :straight t)
+  :ensure t)
 
 (use-package exec-path-from-shell
-    :straight t
+    :ensure t
     :config
     (exec-path-from-shell-initialize))
 
 (use-package expand-region
-  :straight t
+  :ensure t
   :bind ("C-=" . er/expand-region))
 
 (use-package rainbow-mode
-  :straight t)
+  :ensure t)
 
 (use-package smartparens
-  :straight t
+  :ensure t
   :config
   (require 'smartparens-config))
 
 (use-package markdown-mode
-  :straight t
+  :ensure t
   :config
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/bin/pandoc"))
 
 (use-package markdown-preview-mode
-  :straight t)
+  :ensure t)
 
 (use-package yaml-mode
-  :straight t)
+  :ensure t)
 
 (use-package dockerfile-mode
-  :straight t)
+  :ensure t)
 
 (use-package web-mode
-  :straight t
+  :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html.eex\\'" . web-mode)
@@ -206,27 +206,23 @@
 (add-hook 'prog-mode (lambda () (setq truncate-lines t)))
 
 (use-package emmet-mode
-  :straight t
+  :ensure t
   :hook web-mode
   :hook css-mode)
 
 (use-package bundler
-  :straight t)
+  :ensure t)
 
 ;; Ruby and Rails
 (use-package inf-ruby
-  :straight t
+  :ensure t
   :hook (ruby-mode . inf-ruby-minor-mode))
 
-(use-package inflections :straight t)
-(use-package rake :straight t)
-(use-package projectile-rails
-  :straight t
-  :config
-  (projectile-rails-global-mode))
+(use-package inflections
+  :ensure t)
 
 (use-package rspec-mode
-  :straight t
+  :ensure t
   :config
   (setq-default rspec-use-spring-when-possible nil)
   (rspec-install-snippets))
@@ -234,36 +230,35 @@
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (use-package robe
-  :straight t
+  :ensure t
   :config
   (global-robe-mode))
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(use-package yari :straight t) ;; ruby documentation
-(use-package rubocop :straight t)
-(use-package feature-mode :straight t) ;; cucumber
+(use-package rubocop :ensure t)
+(use-package feature-mode :ensure t) ;; cucumber
 
-(use-package alchemist :straight t)
-(use-package terraform-mode :straight t)
+(use-package alchemist :ensure t)
+(use-package terraform-mode :ensure t)
 ;; END
 
 ;; Python
 (use-package elpy
-  :straight t
+  :ensure t
   :config
   (elpy-enable))
 
 ;; Figure out how to only enable this on python, because it is conflicting with org-mode scheduling
 ;; (use-package pyenv-mode
-;;   :straight t
+;;   :ensure t
 ;;   :config
 ;;   (pyenv-mode))
 ;; END
 
 (use-package dashboard
-  :straight t
+  :ensure t
   :config
   (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
   (setq dashboard-startup-banner 'official)
@@ -275,20 +270,20 @@
   (dashboard-setup-startup-hook))
 
 (use-package nyan-mode
-  :straight t
+  :ensure t
   :config
   (setq nyan-wavy-trail t)
   (setq nyan-bar-length 24)
   (nyan-mode))
 
 (use-package ledger-mode
-  :straight t)
+  :ensure t)
 
 (use-package groovy-mode
-  :straight t)
+  :ensure t)
 
 (use-package elfeed
-  :straight t
+  :ensure t
   :config
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq elfeed-feeds
@@ -298,13 +293,13 @@
           "https://wilhelmbot.com/feed.xml")))
 
 ;; (use-package ox-reveal
-;;   :straight t
+;;   :ensure t
 ;;   :config
 ;;   (setq Org-Reveal-root "https://cdn.sdelivr.net/npm/reveal.js")
 ;;   (setq Org-Reveal-title-slide nil))
 
 (use-package helpful
-  :straight t
+  :ensure t
   :config
   (global-set-key (kbd "C-h f") #'helpful-callable)
   (global-set-key (kbd "C-h v") #'helpful-variable)
@@ -316,7 +311,7 @@
   (setq counsel-describe-variable-function #'helpful-variable))
 
 (use-package easy-jekyll
-  :straight t
+  :ensure t
   :init
   (setq easy-jekyll-basedir "~/projects/wkirschbaum/blog")
   (setq easy-jekyll-url "https://wilhelmbot.com")
@@ -335,6 +330,6 @@
                 tramp-file-name-regexp)))
 
 (use-package coverage
-  :straight t
+  :ensure t
   :config
   (global-set-key (kbd "C-c , ,") #'coverage-mode))

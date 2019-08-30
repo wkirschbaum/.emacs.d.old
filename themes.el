@@ -4,12 +4,12 @@
 ;; This is my personal configuration.
 
 ;;; Code:
-(progn
-  (straight-use-package 'zenburn-theme)
-  (straight-use-package 'monokai-theme)
-  (straight-use-package 'solarized-theme)
-  (straight-use-package 'dracula-theme)
-  (straight-use-package 'spacemacs-theme))
+;; (progn
+;;   (straight-use-package 'zenburn-theme)
+;;   (straight-use-package 'monokai-theme)
+;;   (straight-use-package 'solarized-theme)
+;;   (straight-use-package 'dracula-theme)
+;;   (straight-use-package 'spacemacs-theme))
 
 ;; (use-package nord-theme
 ;;   :straight t
@@ -18,9 +18,9 @@
 ;;   (setq nord-region-highlight "snowstorm")
 ;;   (load-theme 'nord t)
 ;;   (set-frame-font "DejaVu Sans Mono 12" nil t))
-(load-theme 'spacemacs-dark)
+;; (load-theme 'spacemacs-dark)
 
-(set-frame-font "Hack 10" nil t)
+;; (set-frame-font "Hack 10" nil t)
 ;; (set-frame-font "IBM Plex Mono 13" nil t)
 ;; (set-frame-font "DejaVu Sans Mono 13" nil t)
 
