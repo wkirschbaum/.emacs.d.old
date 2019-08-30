@@ -79,4 +79,6 @@
 (add-hook 'eshell-preoutput-filter-functions
           'ansi-color-filter-apply)
 
+(setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
+
 ;;; system.el ends here

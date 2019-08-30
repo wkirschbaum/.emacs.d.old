@@ -142,18 +142,16 @@
 (use-package erc
   :config
   (setq-default erc-echo-notices-in-minibuffer-flag t)
-  (setq erc-rename-buffers t)
-  (setq erc-lurker-hide-list '("JOIN" "QUIT"))
-  (setq erc-lurker-threshold-time 3600)
-  (setq erc-input-line-position -2))
-
-(setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
+  (setq erc-rename-buffers t
+        erc-lurker-hide-list '("JOIN" "QUIT")
+        erc-lurker-threshold-time 3600
+        erc-input-line-position -2))
 
 (use-package yasnippet  :ensure t
   :hook (prog-mode . yas-global-mode)
   :config
-  (setq yas-verbosity 1)
-  (setq yas-wrap-around-region t))
+  (setq yas-verbosity 1
+        yas-wrap-around-region t))
 
 (use-package yasnippet-snippets
   :ensure t)
@@ -252,30 +250,23 @@
   :config
   (elpy-enable))
 
-;; Figure out how to only enable this on python, because it is conflicting with org-mode scheduling
-;; (use-package pyenv-mode
-;;   :ensure t
-;;   :config
-;;   (pyenv-mode))
-;; END
-
 (use-package dashboard
   :ensure t
   :config
-  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!")
-  (setq dashboard-startup-banner 'official)
-  (setq dashboard-center-content t)
-  (setq dashboard-items '((agenda . 10)
+  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!"
+        dashboard-startup-banner 'official
+        dashboard-center-content t
+        dashboard-items '((agenda . 10)
                           (bookmarks . 5)
-                          (projects . 5)))
-  (setq show-week-agenda-p t)
+                          (projects . 5))
+        show-week-agenda-p t)
   (dashboard-setup-startup-hook))
 
 (use-package nyan-mode
   :ensure t
   :config
-  (setq nyan-wavy-trail t)
-  (setq nyan-bar-length 24)
+  (setq nyan-wavy-trail t
+        nyan-bar-length 24)
   (nyan-mode))
 
 (use-package ledger-mode
@@ -286,19 +277,13 @@
 
 (use-package elfeed
   :ensure t
+  :bind ("C-x w" . elfeed)
   :config
-  (global-set-key (kbd "C-x w") 'elfeed)
   (setq elfeed-feeds
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss"
           "https://wilhelmbot.com/feed.xml")))
-
-;; (use-package ox-reveal
-;;   :ensure t
-;;   :config
-;;   (setq Org-Reveal-root "https://cdn.sdelivr.net/npm/reveal.js")
-;;   (setq Org-Reveal-title-slide nil))
 
 (use-package helpful
   :ensure t
