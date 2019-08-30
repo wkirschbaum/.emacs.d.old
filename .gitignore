@@ -10,3 +10,4 @@ transient/
 flycheck_programming.el
 /.mc-lists.el
 straight/**/*
+var/

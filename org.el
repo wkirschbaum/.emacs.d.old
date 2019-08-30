@@ -15,7 +15,9 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(add-hook 'org-mode-hook 'auto-fill-mode)
+(setq adaptive-fill-mode t)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 
 (setq org-log-done 'time)
 

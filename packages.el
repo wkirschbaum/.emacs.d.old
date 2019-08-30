@@ -12,6 +12,8 @@
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory))
 
+(use-package amx
+  :ensure t)
 
 (eval-when-compile
   (require 'use-package))
@@ -62,21 +64,25 @@
   :ensure t
   :commands (ag ag-regexp ag-project))
 
+(use-package counsel
+  :ensure t
+  :config
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "M-i") 'counsel-imenu)
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+
 (use-package ivy
   :ensure t
   :config
-  (ivy-mode 1)
   (setq ivy-count-format "(%d/%d) ")
   (setq enable-recursive-minibuffers t)
   (setq ivy-initial-inputs-alist nil)  ;; no default regex
   (setq ivy-use-virtual-buffers t)
   (setq magit-completing-read-function 'ivy-completing-read)
   (global-set-key (kbd "C-c r") 'ivy-resume)
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
-  (global-set-key (kbd "M-i") 'counsel-imenu)
-  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+  (ivy-mode 1))
 
 (use-package projectile
   :ensure t
@@ -85,41 +91,34 @@
   (setq projectile-enable-caching t
         projectile-completion-system 'ivy
         projectile-file-exists-remote-cache-expire nil
-        projectile-project-search-path '("~/projects")
+        projectile-project-search-path '("~/projects/")
         projectile-sort-order 'recently-active)
   (projectile-mode +1))
 
 (use-package counsel-projectile
   :ensure t
-  :after (projectile)
+  :after (ivy counsel projectile)
   :config
   (counsel-projectile-mode))
 
-(use-package ibuffer-projectile
-  :ensure t
-  :config)
-
 (use-package ibuffer
   :config
+  (setq ibuffer-display-summary nil)
   (global-set-key (kbd "C-x C-b") 'ibuffer)
-  (add-hook 'ibuffer-hook
-    (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic))))
-  (setq ibuffer-formats
-      '((mark modified read-only " "
-              (name 18 18 :left :elide)
-              " "
-              (size 9 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " "
-              project-relative-file))))
+  :hook ibuffer . (lambda ()
+		    (ibuffer-projectile-set-filter-groups)
+		    (unless (eq ibuffer-sorting-mode 'recency)
+		      (ibuffer-do-sort-by-recency))))
+
+(use-package ibuffer-projectile
+  :ensure t
+  :after (projectile ibuffer)
+  :config)
 
 (use-package minions
   :ensure t
   :config
+  (setq minions-mode-line-lighter "{*}")
   (minions-mode 1))
 
 (use-package company
