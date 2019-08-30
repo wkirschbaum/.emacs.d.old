@@ -1,4 +1,10 @@
-;; ;; Packages
+;;; Packages -- My packages
+
+;;; Commentary:
+;; This is my personal configuration.
+
+;;; Code:
+
 
 (require 'package)
 (add-to-list 'package-archives
@@ -331,4 +337,14 @@
 (use-package coverage
   :ensure t
   :config
-  (global-set-key (kbd "C-c , ,") #'coverage-mode))
+  :bind ("C-c , ,". coverage-mode))
+
+(use-package keycast
+  :ensure t)
+
+;; Replaces 'delete-blank-lines command
+(use-package shrink-whitespace
+  :ensure t
+  :bind ("C-x C-o" . shrink-whitespace))
+
+;;; packages.el ends here

@@ -3,6 +3,12 @@
 ;;; Commentary:
 ;; This is my personal configuration.
 
+(use-package zenburn-theme
+  :ensure t)
+(load-theme 'zenburn)
+
+(set-frame-font "Hack 12" nil t)
+
 ;;; Code:
 ;; (progn
 ;;   (straight-use-package 'zenburn-theme)
@@ -20,8 +26,6 @@
 ;;   (set-frame-font "DejaVu Sans Mono 12" nil t))
 ;; (load-theme 'spacemacs-dark)
 
-;; (set-frame-font "Hack 10" nil t)
-;; (set-frame-font "IBM Plex Mono 13" nil t)
 ;; (set-frame-font "DejaVu Sans Mono 13" nil t)
 
 ;;; themes.el ends here
