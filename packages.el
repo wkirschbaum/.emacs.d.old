@@ -153,10 +153,8 @@
 (use-package yasnippet-snippets
   :straight t)
 
-(use-package restclient :straight t)
-(use-package dired-filter :straight t)
-
-(use-package browse-at-remote :straight t)
+(use-package restclient
+  :straight t)
 
 (use-package exec-path-from-shell
     :straight t
@@ -167,7 +165,8 @@
   :straight t
   :bind ("C-=" . er/expand-region))
 
-(use-package rainbow-mode :straight t)
+(use-package rainbow-mode
+  :straight t)
 
 (use-package smartparens
   :straight t
@@ -180,11 +179,14 @@
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/bin/pandoc"))
 
-(use-package markdown-preview-mode :straight t)
+(use-package markdown-preview-mode
+  :straight t)
 
-(use-package yaml-mode :straight t)
+(use-package yaml-mode
+  :straight t)
 
-(use-package dockerfile-mode :straight t)
+(use-package dockerfile-mode
+  :straight t)
 
 (use-package web-mode
   :straight t
@@ -208,13 +210,8 @@
   :hook web-mode
   :hook css-mode)
 
-(use-package haskell-mode :straight t)
-(use-package intero
-  :straight t
-  :config
-  (intero-global-mode 1))
-
-(use-package bundler :straight t)
+(use-package bundler
+  :straight t)
 
 ;; Ruby and Rails
 (use-package inf-ruby
@@ -277,12 +274,6 @@
   (setq show-week-agenda-p t)
   (dashboard-setup-startup-hook))
 
-(use-package emms
-  :straight t
-  :config
-  (emms-standard)
-  (emms-default-players))
-
 (use-package nyan-mode
   :straight t
   :config
@@ -306,23 +297,10 @@
           "https://rubyweekly.com/rss"
           "https://wilhelmbot.com/feed.xml")))
 
-(use-package telega
-  :straight t
-  :commands (telega)
-  :config
-  (setq telega-use-notifications t)
-  (add-hook 'telega-chat-mode-hook (lambda ()
-    (setq company-backends '(telega-company-emoji))
-    (company-mode 1)))
-  :defer t)
-
-(use-package alert
-  :straight t)
-
 ;; (use-package ox-reveal
 ;;   :straight t
 ;;   :config
-;;   (setq Org-Reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
+;;   (setq Org-Reveal-root "https://cdn.sdelivr.net/npm/reveal.js")
 ;;   (setq Org-Reveal-title-slide nil))
 
 (use-package helpful
@@ -345,13 +323,6 @@
   (setq easy-jekyll-root "")
   (setq easy-jekyll-previewtime "300")
   :bind ("C-c C-e" . easy-jekyll))
-
-;; (use-package excorporate
-;;   :straight t
-;;   :config
-;;   (setq excorporate-configuration (quote ("wilhelm.kirschbaum@prodigyfinance.com" . "https://outlook.office365.com/EWS/Exchange.asmx")))
-;;   (excorporate-diary-enable)
-;;   (excorporate))
 
 (use-package tramp
   :config
