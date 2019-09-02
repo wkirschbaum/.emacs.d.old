@@ -9,8 +9,11 @@
         ("a" "Appointment" entry (file+headline "~/Dropbox/Org/calendar.org" "Appointments") "* %?\n")
         ("t" "Todo" entry (file+headline "~/Dropbox/Org/todo.org" "Today") "* TODO %?")))
 
-(setq org-todo-keywords
+(setq-default org-todo-keywords
       '((sequence "TODO(t)" "DOING(b)" "|" "DONE(d)")))
+
+;; When I am more comfortable with calendar
+;; (setq-default org-agenda-include-diary t)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
@@ -21,14 +24,16 @@
 
 (setq org-log-done 'time)
 
+;; This is not working anymore ;(
 (use-package org-journal
   :bind ("C-c C-j" . org-journal-new-entry)
   :config
-  (setq org-journal-dir (concat org-directory "journal/")))
+  (setq org-journal-dir (concat org-directory "Journal/")))
 
 ;; Force a new line when the text goes too far to the right
 ;; it uses the default fill column number
 (add-hook 'org-mode-hook #'toggle-word-wrap)
+(add-hook 'text-mode-hook #'toggle-word-wrap)
 
 ;; Calendar and Diary
 (setq calendar-view-diary-initially-flag t

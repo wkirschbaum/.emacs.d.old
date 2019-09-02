@@ -7,7 +7,7 @@
   :ensure t)
 (load-theme 'zenburn)
 
-(set-frame-font "Hack 12" nil t)
+(set-frame-font "Hack 11" nil t)
 
 ;;; Code:
 ;; (progn
