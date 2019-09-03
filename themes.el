@@ -4,7 +4,7 @@
 ;; This is my personal configuration.
 
 (use-package zenburn-theme
-  :ensure t)
+  :straight t)
 (load-theme 'zenburn)
 
 (set-frame-font "Hack 11" nil t)
