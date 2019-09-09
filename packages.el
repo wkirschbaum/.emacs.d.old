@@ -109,6 +109,19 @@
   :config
   (counsel-projectile-mode))
 
+
+(use-package inf-ruby
+  :straight t)
+
+(use-package f
+  :straight t)
+
+(use-package rake
+  :straight t)
+
+(use-package inflections
+  :straight t)
+
 (use-package projectile-rails
   :straight t
   :config
@@ -338,5 +351,8 @@
 (use-package shrink-whitespace
   :straight t
   :bind ("C-x C-o" . shrink-whitespace))
+
+(use-package restclient
+  :straight t)
 
 ;;; packages.el ends here
