@@ -9,6 +9,8 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
+
+(load "~/.emacs.d/encoding.el")
 (load "~/.emacs.d/system.el")
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/functions.el")
