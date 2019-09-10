@@ -12,7 +12,6 @@
 (load "~/.emacs.d/system.el")
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/org.el")
 (load "~/.emacs.d/gnus.el")
 (load "~/.emacs.d/external/stickywindows.el")
 (load "~/.emacs.d/external/confluence-ox.el")
