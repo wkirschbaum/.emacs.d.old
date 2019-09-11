@@ -77,4 +77,6 @@
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
 
+(global-so-long-mode 1)
+
 ;;; system.el ends here

@@ -67,9 +67,6 @@
   :config
   (setq org-journal-dir (concat org-directory "Journal/")))
 
-(use-package flx :straight t)
-(use-package amx :straight t)
-
 (eval-when-compile
   (require 'use-package))
 
@@ -136,6 +133,11 @@
         ivy-use-virtual-buffers t
         magit-completing-read-function 'ivy-completing-read)
   (ivy-mode 1))
+
+(use-package ivy-rich
+  :straight t
+  :config
+  (ivy-rich-mode 1))
 
 (use-package projectile
   :straight t
@@ -404,8 +406,30 @@
 (use-package evil
   :straight t)
 
+(use-package dumb-jump
+  :straight t
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (add-hook 'prog-mode-hook 'dumb-jump-mode))
 
+;;; Experimental
+;; This is suppose to make predictions better, based on statistics
+(use-package prescient
+  :straight t
+  :config
+  (prescient-persist-mode))
 
+(use-package ivy-prescient
+  :straight t
+  :config
+  (ivy-prescient-mode))
 
+(use-package company-prescient
+  :straight t
+  :config
+  (company-prescient-mode))
 
-;;; packages.el ends here
+(use-package focus
+  :straight t)
+
+;; ;;; packages.el ends here
