@@ -19,4 +19,14 @@
 (load "~/.emacs.d/external/confluence-ox.el")
 (load "~/.emacs.d/themes.el")
 
+;; exeperimental
+
+(when (display-graphic-p)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+        mouse-wheel-progressive-speed nil))
+(setq scroll-step 1
+      scroll-margin 0
+      scroll-conservatively 100000)
+
+
 ;;; init.el ends here

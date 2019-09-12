@@ -51,10 +51,6 @@
 (column-number-mode 1)
 
 
-(recentf-mode 1)
-(setq-default recentf-max-menu-items 50)
-(setq-default recentf-max-saved-items 50)
-
 (save-place-mode 1)
 (setq save-place-file "~/.emacs.d/saveplace")
 

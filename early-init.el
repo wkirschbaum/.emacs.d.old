@@ -26,5 +26,5 @@
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
 
-;; Increase garbage collections threshold to 20mb
-(setq gc-cons-threshold 20000000)
+;; Increase garbage collections threshold to 40mb
+(setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000))

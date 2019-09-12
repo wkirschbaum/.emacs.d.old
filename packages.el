@@ -21,6 +21,25 @@
 
 (straight-use-package 'use-package)
 
+(use-package recentf
+  :init
+  (setq-default recentf-max-saved-items 50)
+  (setq-default recentf-max-menu-items 50)
+  (setq recentf-exclude '((expand-file-name package-user-dir)
+                          ".cache"
+                          ".cask"
+                          ".elfeed"
+                          "bookmarks"
+                          "cache"
+                          "ido.*"
+                          "persp-confs"
+                          "recentf"
+                          "undo-tree-hist"
+                          "url"
+                          "COMMIT_EDITMSG\\'"))
+  :config
+  (recentf-mode 1))
+
 (use-package org
   :straight t
   :config
@@ -431,5 +450,9 @@
 
 (use-package focus
   :straight t)
+
+(use-package docker
+  :straight t
+  :bind ("C-c d" . docker))
 
 ;; ;;; packages.el ends here
