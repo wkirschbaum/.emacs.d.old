@@ -1,4 +1,4 @@
-*
+i*
 !*.el
 !*/
 !/eshell/alias
@@ -9,3 +9,12 @@
 /custom.el
 /straight/
 /var/prescient-save.el
+/session.*
+/auto-save-list/
+/forge-database.sqlite
+*.eld
+*.cache
+/recentf
+/saveplace
+/org-clock-save.el
+/eshell/history

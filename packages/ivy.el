@@ -20,8 +20,3 @@
         ivy-use-virtual-buffers t
         magit-completing-read-function 'ivy-completing-read)
   (ivy-mode 1))
-
-(use-package ivy-rich
-  :straight t
-  :config
-  (ivy-rich-mode 1))
