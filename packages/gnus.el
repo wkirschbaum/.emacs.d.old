@@ -6,15 +6,9 @@
 (setq user-full-name "Wilhelm Hugo Kirschbaum")
 
 (setq gnus-secondary-select-methods
-      '((nnmaildir "gmail"
-                   (directory "~/.mail/gmail/"))
-        (nnmaildir "pdg"
-                   (directory "~/.mail/pdg/"))))
+      '((nnmaildir "gmail"p
+                   (directory "~/.mail/gmail/"))))
 
-(with-eval-after-load "mail-source"
-  (add-to-list 'mail-sources '((maildir :path "/home/wilhelm/.mail/local/"
-                                        :subdirs ("cur" "new")))))
-
-(setq send-mail-function 'smtpmail-send-it)
-(setq message-send-mail-function 'smtpmail-send-it)
-(setq smtpmail-default-smtp-server "localhost")
+(setq-default smtpmail-smtp-server "smtp.gmail.com"
+              smtpmail-smtp-service 587
+              send-mail-function 'smtpmail-send-it)
