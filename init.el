@@ -9,15 +9,12 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-
 (load "~/.emacs.d/encoding.el")
 (load "~/.emacs.d/system.el")
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/gnus.el")
 (load "~/.emacs.d/external/stickywindows.el")
 (load "~/.emacs.d/external/confluence-ox.el")
-(load "~/.emacs.d/themes.el")
 
 ;; experimental for smoother scrolling
 ;;; Seems to work really well so far
@@ -35,7 +32,7 @@
   (setq gc-cons-threshold most-positive-fixnum))
 
 (defun my-minibuffer-exit-hook ()
-  (setq gc-cons-threshold (if (display-graphic-p) 200000000 100000000)))
+  (setq gc-cons-threshold 2000000))
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
