@@ -1,4 +1,3 @@
-i*
 !*.el
 !*/
 !/eshell/alias
@@ -19,3 +18,9 @@ i*
 /org-clock-save.el
 /eshell/history
 /network-security.data
+/places
+/persp-confs/
+/.elfeed/
+/request/
+/url/cache/
+/url/cache/
