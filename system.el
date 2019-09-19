@@ -50,7 +50,6 @@
 (show-paren-mode 1)
 (column-number-mode 1)
 
-
 (save-place-mode 1)
 (setq save-place-file "~/.emacs.d/saveplace")
 
@@ -63,6 +62,16 @@
 (setq-default wdired-allow-to-change-permissions t)
 (setq-default wdired-create-parent-directories t)
 
+;; experimental for smoother scrolling
+;;; Seems to work really well so far
+
+(when (display-graphic-p)
+  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+        mouse-wheel-progressive-speed nil))
+(setq scroll-step 1
+      scroll-margin 0
+      scroll-conservatively 100000)
+
 ;; Use hippie expand rather
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 (global-set-key (kbd "C-x C-r") 'find-file-read-only)
@@ -72,7 +81,5 @@
           'ansi-color-filter-apply)
 
 (setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
-
-(global-so-long-mode 1)
 
 ;;; system.el ends here

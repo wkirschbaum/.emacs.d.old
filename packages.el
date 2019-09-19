@@ -24,6 +24,9 @@
 (load "~/.emacs.d/packages/org.el")
 (load "~/.emacs.d/packages/ivy.el")
 (load "~/.emacs.d/packages/gnus.el")
+(load "~/.emacs.d/packages/programming.el")
+(load "~/.emacs.d/packages/git.el")
+(load "~/.emacs.d/packages/candy.el")
 (load "~/.emacs.d/packages/extra.el")
 (load "~/.emacs.d/packages/themes.el")
 

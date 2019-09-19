@@ -30,34 +30,10 @@
   :config
   (which-key-mode 1))
 
-(use-package define-word
-  :straight t)
-
 (use-package whitespace
   :hook (prog-mode . whitespace-mode)
   :config
   (setq whitespace-style '(face tabs tab-mark trailing empty)))
-
-(use-package git-timemachine
-  :straight t
-  :defer t)
-
-(use-package magit
-  :straight t
-  :demand t
-  :bind ("C-x g" . magit-status)
-  :config
-  (setq magit-repository-directories '(("~/projects/" . 2))
-        magit-revision-show-gravatars 'author))
-
-(use-package forge
-  :straight t)
-
-(use-package diff-hl
-  :straight t
-  :hook ((prog-mode . diff-hl-mode)
-         (org-mode . diff-hl-mode)
-         (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 (use-package ag
   :straight t
@@ -76,23 +52,6 @@
         projectile-indexing-method 'hybrid)
   (projectile-mode +1))
 
-(use-package inf-ruby
-  :straight t)
-
-(use-package f
-  :straight t)
-
-(use-package rake
-  :straight t)
-
-(use-package inflections
-  :straight t)
-
-(use-package projectile-rails
-  :straight t
-  :config
-  (projectile-rails-global-mode))
-
 (use-package ibuffer
   :bind(("C-x C-b" . ibuffer))
   :config
@@ -106,13 +65,6 @@
   :straight t
   :after (projectile ibuffer)
   :config)
-
-(use-package minions
-  :straight t
-  :config
-  (setq minions-mode-line-lighter "{*}"
-        minions-direct '(projectile-mode))
-  (minions-mode 1))
 
 (use-package company
   :straight t
@@ -137,15 +89,6 @@
         erc-lurker-threshold-time 3600
         erc-input-line-position -2))
 
-(use-package yasnippet  :straight t
-  :hook (prog-mode . yas-global-mode)
-  :config
-  (setq yas-verbosity 1
-        yas-wrap-around-region t))
-
-(use-package yasnippet-snippets
-  :straight t)
-
 (use-package exec-path-from-shell
     :straight t
     :config
@@ -169,77 +112,6 @@
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/bin/pandoc"))
 
-(use-package markdown-preview-mode
-  :straight t)
-
-(use-package yaml-mode
-  :straight t)
-
-(use-package dockerfile-mode
-  :straight t)
-
-(use-package web-mode
-  :straight t
-  :mode (("\\.html?\\'" . web-mode)
-         ("\\.erb\\'" . web-mode)
-         ("\\.html.eex\\'" . web-mode)
-         )
-  :config
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-enable-auto-pairing t)
-  (setq web-mode-enable-auto-expanding t)
-  (setq web-mode-enable-current-column-highlight t)
-  (setq web-mode-enable-css-colorization t))
-
-(add-hook 'prog-mode (lambda () (setq truncate-lines t)))
-
-(use-package emmet-mode
-  :straight t
-  :hook web-mode
-  :hook css-mode)
-
-(use-package bundler
-  :straight t)
-
-;; Ruby and Rails
-(use-package inf-ruby
-  :straight t
-  :hook (ruby-mode . inf-ruby-minor-mode))
-
-(use-package inflections
-  :straight t)
-
-(use-package rspec-mode
-  :straight t
-  :config
-  (setq-default rspec-use-spring-when-possible t)
-  (rspec-install-snippets))
-
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-
-(use-package robe
-  :straight t
-  :config
-  (global-robe-mode))
-
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
-(use-package rubocop :straight t)
-(use-package feature-mode :straight t) ;; cucumber
-
-(use-package alchemist :straight t)
-(use-package terraform-mode :straight t)
-;; END
-
-;; Python
-(use-package elpy
-  :straight t
-  :config
-  (elpy-enable))
-
 (use-package dashboard
   :straight t
   :config
@@ -252,17 +124,7 @@
         show-week-agenda-p t)
   (dashboard-setup-startup-hook))
 
-(use-package nyan-mode
-  :straight t
-  :config
-  (setq nyan-wavy-trail t
-        nyan-bar-length 24)
-  (nyan-mode))
-
 (use-package ledger-mode
-  :straight t)
-
-(use-package groovy-mode
   :straight t)
 
 (use-package elfeed
@@ -274,18 +136,6 @@
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss"
           "https://wilhelmbot.com/feed.xml")))
-
-(use-package helpful
-  :straight t
-  :bind(("C-h f" . helpful-callable)
-        ("C-h v" . helpful-variable)
-        ("C-h k" . helpful-key)
-        ("C-c C-d" . helpful-at-point)
-        ("C-h C" . helpful-command)
-        ("C-h F" . helpful-function))
-  :config
-  (setq counsel-describe-function-function #'helpful-callable
-        counsel-describe-variable-function #'helpful-variable))
 
 (use-package easy-jekyll
   :straight t
@@ -305,23 +155,12 @@
                 vc-ignore-dir-regexp
                 tramp-file-name-regexp)))
 
-(use-package coverage
-  :straight t
-  :config
-  :bind ("C-c , ,". coverage-mode))
-
-(use-package keycast
-  :straight t)
-
 ;; Replaces 'delete-blank-lines command
 (use-package shrink-whitespace
   :straight t
   :bind ("C-x C-o" . shrink-whitespace))
 
 (use-package restclient
-  :straight t)
-
-(use-package evil
   :straight t)
 
 (use-package dumb-jump
@@ -347,12 +186,6 @@
   :config
   (company-prescient-mode))
 
-(use-package focus
-  :straight t)
-
 (use-package docker
   :straight t
   :bind ("C-c d" . docker))
-
-(use-package howdoyou
-  :straight t)
