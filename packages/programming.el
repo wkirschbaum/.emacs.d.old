@@ -19,11 +19,6 @@
 (use-package inflections
   :straight t)
 
-(use-package projectile-rails
-  :straight t
-  :config
-  (projectile-rails-global-mode))
-
 (use-package markdown-preview-mode
   :straight t)
 
@@ -65,6 +60,11 @@
   (rspec-install-snippets))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+(use-package projectile-rails
+  :straight t
+  :config
+  (projectile-rails-global-mode))
 
 (use-package robe
   :straight t

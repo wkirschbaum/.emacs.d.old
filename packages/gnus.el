@@ -6,8 +6,11 @@
 (setq user-full-name "Wilhelm Hugo Kirschbaum")
 
 (setq gnus-secondary-select-methods
-      '((nnmaildir "gmail"p
-                   (directory "~/.mail/gmail/"))))
+      '((nnmaildir "gmail"
+                   (directory "~/.mail/gmail/"))
+        (nnmaildir "pdg"
+                   (directory "~/.mail/pdg/"))))
+
 
 (setq-default smtpmail-smtp-server "smtp.gmail.com"
               smtpmail-smtp-service 587

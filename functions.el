@@ -13,11 +13,6 @@
   (interactive "r")
   (func-region start end #'url-unhex-string))
 
-(defun erc-connect ()
-  (interactive)
-  (erc-tls :server "irc.wilhelmbot.com" :port "1555" :nick "peirama"))
-
-
 (defun prs/kill-this-buffer ()
   "Kill the current buffer."
   (interactive)

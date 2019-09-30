@@ -27,6 +27,7 @@
 (load "~/.emacs.d/packages/programming.el")
 (load "~/.emacs.d/packages/git.el")
 (load "~/.emacs.d/packages/candy.el")
+(load "~/.emacs.d/packages/erc.el")
 (load "~/.emacs.d/packages/extra.el")
 (load "~/.emacs.d/packages/themes.el")
 

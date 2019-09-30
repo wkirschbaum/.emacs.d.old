@@ -80,15 +80,6 @@
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
-;; erc
-(use-package erc
-  :config
-  (setq-default erc-echo-notices-in-minibuffer-flag t)
-  (setq erc-rename-buffers t
-        erc-lurker-hide-list '("JOIN" "QUIT")
-        erc-lurker-threshold-time 3600
-        erc-input-line-position -2))
-
 (use-package exec-path-from-shell
     :straight t
     :config
