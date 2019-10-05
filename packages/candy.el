@@ -34,8 +34,3 @@
   (setq minions-mode-line-lighter "{*}"
         minions-direct '(projectile-mode))
   (minions-mode 1))
-
-(use-package beacon
-  :straight t
-  :config
-  (beacon-mode 1))
