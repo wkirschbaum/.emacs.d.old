@@ -3,9 +3,14 @@
 ;;; Commentary:
 ;; This is my personal configuration.
 
-(use-package zenburn-theme
+;; (use-package zenburn-theme
+;;   :straight t)
+;; (load-theme 'zenburn)
+
+(use-package solarized-theme
   :straight t)
-(load-theme 'zenburn)
+(load-theme 'solarized-dark)
+
 
 (set-frame-font "Hack 11" nil t)
 

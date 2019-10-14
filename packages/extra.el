@@ -1,3 +1,8 @@
+(use-package exec-path-from-shell
+    :straight t
+    :config
+    (exec-path-from-shell-initialize))
+
 (use-package recentf
   :init
   (setq-default recentf-max-saved-items 50)
@@ -80,17 +85,9 @@
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
-(use-package exec-path-from-shell
-    :straight t
-    :config
-    (exec-path-from-shell-initialize))
-
 (use-package expand-region
   :straight t
   :bind ("C-=" . er/expand-region))
-
-(use-package rainbow-mode
-  :straight t)
 
 (use-package smartparens
   :straight t
@@ -114,9 +111,6 @@
                           (projects . 5))
         show-week-agenda-p t)
   (dashboard-setup-startup-hook))
-
-(use-package ledger-mode
-  :straight t)
 
 (use-package elfeed
   :straight t
@@ -153,12 +147,6 @@
 
 (use-package restclient
   :straight t)
-
-(use-package dumb-jump
-  :straight t
-  :config
-  (setq dumb-jump-selector 'ivy)
-  (add-hook 'prog-mode-hook 'dumb-jump-mode))
 
 ;;; Experimental
 ;; This is suppose to make predictions better, based on statistics

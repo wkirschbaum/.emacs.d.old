@@ -82,8 +82,3 @@
 
 (use-package groovy-mode
   :straight t)
-
-(use-package coverage
-  :straight t
-  :config
-  :bind ("C-c , ,". coverage-mode))
