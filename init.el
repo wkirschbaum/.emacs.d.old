@@ -13,7 +13,5 @@
 (load "~/.emacs.d/system.el")
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/external/stickywindows.el")
-(load "~/.emacs.d/external/confluence-ox.el")
 
 ;;; init.el ends here

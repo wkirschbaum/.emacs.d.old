@@ -45,7 +45,7 @@
     (switch-to-buffer (get-buffer-create "*#corporate life*"))
     (erase-buffer)
     (sit-for 0)
-    (animate-string "#corporatelife"
+    (animate-string "#CorporateLife"
                     (/ (window-height) 2) (- (/ (window-width) 2) 12))
     (sit-for 1)
     (message "You are now part of the corporate life at Prodigy Finance!")))
