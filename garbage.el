@@ -10,8 +10,8 @@
 ;; Set garbage collection threshold to 1GB.
 (setq gc-cons-threshold #x40000000)
 
-;; When idle for 15 sec run the GC no matter what.
+;; When idle for 10 sec run the GC no matter what.
 (defvar k-gc-timer
-  (run-with-idle-timer 15 t
+  (run-with-idle-timer 10 t
                        (lambda ()
                          (k-time (garbage-collect)))))

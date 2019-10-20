@@ -1,3 +1,24 @@
+(defun init ()
+  "Opens the init file"
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(defun whk/line-normal ()
+  "Display line numbers as default"
+  (interactive)
+  (progn
+    (setq display-line-numbers-type t)
+    (setq display-line-numbers-current-absolute nil)
+    (display-line-numbers-mode 1)))
+
+(defun whk/line-rel ()
+  "Display line numbers as default"
+  (interactive)
+  (progn
+    (setq display-line-numbers-type 'visual)
+    (setq display-line-numbers-current-absolute t)
+    (display-line-numbers-mode 1)))
+
 (defun kill-filename ()
   (interactive)
   (when (buffer-file-name)
