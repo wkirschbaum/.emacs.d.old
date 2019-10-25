@@ -1,5 +1,5 @@
-alias open find-file $1
-alias emacs find-file $1
-
-alias ll ls -lah
+alias clear clear t
 alias be bundle exec $*
+alias ll ls -lah
+alias emacs find-file $1
+alias open find-file $1

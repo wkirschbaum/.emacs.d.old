@@ -77,8 +77,24 @@
 (use-package rubocop :straight t)
 (use-package feature-mode :straight t) ;; cucumber
 
-(use-package alchemist :straight t)
 (use-package terraform-mode :straight t)
 
 (use-package groovy-mode
   :straight t)
+
+(use-package elixir-mode
+  :straight t)
+
+(use-package alchemist
+  :straight t)
+
+(use-package flycheck-mix
+  :straight t)
+
+(use-package flycheck-credo
+  :straight t)
+
+(use-package grip-mode
+  :straight t
+  :bind (:map markdown-mode-command-map
+              ("g" . grip-mode)))
