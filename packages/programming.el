@@ -98,3 +98,8 @@
   :straight t
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
+
+(use-package company-restclient
+  :straight t
+  :config
+  (add-to-list 'company-backends 'company-restclient))

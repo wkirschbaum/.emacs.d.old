@@ -70,4 +70,11 @@
                     (/ (window-height) 2) (- (/ (window-width) 2) 12))
     (sit-for 1)
     (message "You are now part of the corporate life at Prodigy Finance!")))
+
+(defun restclient ()
+  (interactive)
+  (progn
+    (switch-to-buffer (get-buffer-create "*restclient*"))
+    (restclient-mode)))
+
 ;; end here

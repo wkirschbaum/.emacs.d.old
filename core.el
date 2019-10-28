@@ -68,6 +68,8 @@
 (setq-default display-line-numbers-width 4)
 (setq-default display-line-numbers-widen t)
 (setq-default indent-tabs-mode nil)
+
+;; Toggle relative line numbers
 (whk/line-rel)
 
 ;;; core.el ends here
