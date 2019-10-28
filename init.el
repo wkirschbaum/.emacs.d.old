@@ -26,6 +26,7 @@
 (load "~/.emacs.d/modules/core.el")
 (load "~/.emacs.d/modules/org.el")
 (load "~/.emacs.d/modules/ivy.el")
+(load "~/.emacs.d/modules/dired.el")
 (load "~/.emacs.d/modules/gnus.el")
 (load "~/.emacs.d/modules/programming.el")
 (load "~/.emacs.d/modules/git.el")
