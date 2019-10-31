@@ -1,7 +1,7 @@
 *
 !*.el
 !*/
-/straight/
+/elpa/
 /var/
 /transient/
 /var/

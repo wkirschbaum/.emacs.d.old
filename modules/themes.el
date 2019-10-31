@@ -4,11 +4,11 @@
 ;; This is my personal configuration.
 
 ;; (use-package zenburn-theme
-;;   :straight t)
+;;   :ensure t)
 ;; (load-theme 'zenburn)
 
 (use-package solarized-theme
-  :straight t)
+  :ensure t)
 (load-theme 'solarized-dark)
 
 
@@ -23,7 +23,7 @@
 ;;   (straight-use-package 'spacemacs-theme))
 
 ;; (use-package nord-theme
-;;   :straight t
+;;   :ensure t
 ;;   :config
 ;;   (setq nord-comment-brightness 2)
 ;;   (setq nord-region-highlight "snowstorm")

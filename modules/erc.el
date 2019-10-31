@@ -8,4 +8,4 @@
 
 (defun erc-connect ()
   (interactive)
-  (erc-tls :server "irc.wilhelmbot.com" :port "1555" :nick "peirama"))
+  (erc-tls :server "irc.wilhelmbot.com" :port "1555" :nick "wilkir"))

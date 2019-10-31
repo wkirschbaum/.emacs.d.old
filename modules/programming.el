@@ -1,35 +1,35 @@
-(use-package yasnippet  :straight t
+(use-package yasnippet  :ensure t
   :hook (prog-mode . yas-global-mode)
   :config
   (setq yas-verbosity 1
         yas-wrap-around-region t))
 
 (use-package yasnippet-snippets
-  :straight t)
+  :ensure t)
 
 (use-package inf-ruby
-  :straight t)
+  :ensure t)
 
 (use-package f
-  :straight t)
+  :ensure t)
 
 (use-package rake
-  :straight t)
+  :ensure t)
 
 (use-package inflections
-  :straight t)
+  :ensure t)
 
 (use-package markdown-preview-mode
-  :straight t)
+  :ensure t)
 
 (use-package yaml-mode
-  :straight t)
+  :ensure t)
 
 (use-package dockerfile-mode
-  :straight t)
+  :ensure t)
 
 (use-package web-mode
-  :straight t
+  :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html.eex\\'" . web-mode)
@@ -46,15 +46,15 @@
 (add-hook 'prog-mode (lambda () (setq truncate-lines t)))
 
 (use-package emmet-mode
-  :straight t
+  :ensure t
   :hook web-mode
   :hook css-mode)
 
 (use-package bundler
-  :straight t)
+  :ensure t)
 
 (use-package rspec-mode
-  :straight t
+  :ensure t
   :config
   (setq-default rspec-use-spring-when-possible t)
   (rspec-install-snippets))
@@ -62,44 +62,44 @@
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (use-package projectile-rails
-  :straight t
+  :ensure t
   :config
   (projectile-rails-global-mode))
 
 (use-package robe
-  :straight t
+  :ensure t
   :config
   (global-robe-mode))
 
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
-(use-package rubocop :straight t)
-(use-package feature-mode :straight t) ;; cucumber
+(use-package rubocop :ensure t)
+(use-package feature-mode :ensure t) ;; cucumber
 
-(use-package terraform-mode :straight t)
+(use-package terraform-mode :ensure t)
 
 (use-package groovy-mode
-  :straight t)
+  :ensure t)
 
 (use-package elixir-mode
-  :straight t)
+  :ensure t)
 
 (use-package alchemist
-  :straight t)
+  :ensure t)
 
 (use-package flycheck-mix
-  :straight t)
+  :ensure t)
 
 (use-package flycheck-credo
-  :straight t)
+  :ensure t)
 
 (use-package grip-mode
-  :straight t
+  :ensure t
   :bind (:map markdown-mode-command-map
               ("g" . grip-mode)))
 
 (use-package company-restclient
-  :straight t
+  :ensure t
   :config
   (add-to-list 'company-backends 'company-restclient))

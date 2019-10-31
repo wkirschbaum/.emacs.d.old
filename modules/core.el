@@ -69,6 +69,9 @@
 (setq-default display-line-numbers-widen t)
 (setq-default indent-tabs-mode nil)
 
+;; Do not ask when following symbolic link
+(setq vc-follow-symlinks nil)
+
 ;; Toggle relative line numbers
 (whk/line-rel)
 

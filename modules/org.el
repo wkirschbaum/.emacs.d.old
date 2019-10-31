@@ -1,5 +1,5 @@
 (use-package org
-  :straight t
+  :ensure t
   :config
   (setq org-agenda-files (file-expand-wildcards "~/Dropbox/Org/*.org"))
   (setq org-directory "~/Dropbox/Org/")
@@ -39,7 +39,7 @@
   (setq org-catch-invisible-edits 'error))
 
 (use-package org-journal
-  :straight t
+  :ensure t
   :bind ("C-c C-j" . org-journal-new-entry)
   :config
   (setq org-journal-dir (concat org-directory "Journal/")))

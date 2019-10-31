@@ -1,9 +1,9 @@
 (use-package git-timemachine
-  :straight t
+  :ensure t
   :defer t)
 
 (use-package magit
-  :straight t
+  :ensure t
   :demand t
   :bind ("C-x g" . magit-status)
   :config
@@ -11,10 +11,10 @@
         magit-revision-show-gravatars 'author))
 
 (use-package forge
-  :straight t)
+  :ensure t)
 
 (use-package diff-hl
-  :straight t
+  :ensure t
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (magit-post-refresh . diff-hl-magit-post-refresh)))

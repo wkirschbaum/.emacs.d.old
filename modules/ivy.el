@@ -1,17 +1,17 @@
 (use-package counsel
-  :straight t
+  :ensure t
   :bind(("M-x" . counsel-M-x)
         ("C-x C-f" . counsel-find-file)
         ("C-c k" . counsel-ag)
         ("M-i" . counsel-imenu)))
 
 (use-package counsel-projectile
-  :straight t
+  :ensure t
   :config
   (counsel-projectile-mode))
 
 (use-package ivy
-  :straight t
+  :ensure t
   :bind(("C-c r" . ivy-resume))
   :config
   (setq ivy-count-format "(%d/%d) "

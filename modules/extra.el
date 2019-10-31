@@ -1,5 +1,5 @@
 (use-package exec-path-from-shell
-    :straight t
+    :ensure t
     :config
     (exec-path-from-shell-initialize))
 
@@ -23,7 +23,7 @@
   (recentf-mode 1))
 
 (use-package all-the-icons
-  :straight t)
+  :ensure t)
 
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
@@ -31,7 +31,7 @@
   (setq dired-dwim-target t))
 
 (use-package which-key
-  :straight t
+  :ensure t
   :config
   (which-key-mode 1))
 
@@ -41,11 +41,11 @@
   (setq whitespace-style '(face tabs tab-mark trailing empty)))
 
 (use-package ag
-  :straight t
+  :ensure t
   :commands (ag ag-regexp ag-project))
 
 (use-package projectile
-  :straight t
+  :ensure t
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
   (setq projectile-enable-caching t
@@ -67,17 +67,17 @@
                       (ibuffer-do-sort-by-recency))))
 
 (use-package ibuffer-projectile
-  :straight t
+  :ensure t
   :after (projectile ibuffer)
   :config)
 
 (use-package company
-  :straight t
+  :ensure t
   :config
   (global-company-mode t))
 
 (use-package flycheck
-  :straight t
+  :ensure t
   :config
   (global-flycheck-mode))
 
@@ -86,22 +86,22 @@
          (text-mode . flyspell-mode)))
 
 (use-package expand-region
-  :straight t
+  :ensure t
   :bind ("C-=" . er/expand-region))
 
 (use-package smartparens
-  :straight t
+  :ensure t
   :config
   (require 'smartparens-config))
 
 (use-package markdown-mode
-  :straight t
+  :ensure t
   :config
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/bin/pandoc"))
 
 (use-package dashboard
-  :straight t
+  :ensure t
   :config
   (setq dashboard-banner-logo-title "Focus on using yasnippets this week!"
         dashboard-startup-banner 'official
@@ -113,7 +113,7 @@
   (dashboard-setup-startup-hook))
 
 (use-package elfeed
-  :straight t
+  :ensure t
   :bind ("C-x w" . elfeed)
   :config
   (setq elfeed-feeds
@@ -123,7 +123,7 @@
           "https://wilhelmbot.com/feed.xml")))
 
 (use-package easy-jekyll
-  :straight t
+  :ensure t
   :init
   (setq easy-jekyll-basedir "~/projects/wkirschbaum/blog"
         easy-jekyll-url "https://wilhelmbot.com"
@@ -142,29 +142,29 @@
 
 ;; Replaces 'delete-blank-lines command
 (use-package shrink-whitespace
-  :straight t
+  :ensure t
   :bind ("C-x C-o" . shrink-whitespace))
 
 (use-package restclient
-  :straight t)
+  :ensure t)
 
 ;;; Experimental
 ;; This is suppose to make predictions better, based on statistics
 (use-package prescient
-  :straight t
+  :ensure t
   :config
   (prescient-persist-mode))
 
 (use-package ivy-prescient
-  :straight t
+  :ensure t
   :config
   (ivy-prescient-mode))
 
 (use-package company-prescient
-  :straight t
+  :ensure t
   :config
   (company-prescient-mode))
 
 (use-package docker
-  :straight t
+  :ensure t
   :bind ("C-c d" . docker))
