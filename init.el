@@ -23,10 +23,7 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-
 (eval-when-compile
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (add-to-list 'load-path "<path where use-package is installed>")
   (require 'use-package))
 
 (load "~/.emacs.d/functions.el")
@@ -46,4 +43,3 @@
 (load "~/.emacs.d/modules/themes.el")
 
 ;;; init.el ends here
-(put 'narrow-to-region 'disabled nil)
