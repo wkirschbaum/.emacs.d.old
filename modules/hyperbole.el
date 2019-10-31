@@ -1,2 +1,2 @@
-(use-package hyperbole
-	     :ensure t)
+(use-package
+  :ensure t)
