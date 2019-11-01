@@ -14,7 +14,9 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 (package-initialize)
 
 (unless package-archive-contents
@@ -34,12 +36,14 @@
 (load "~/.emacs.d/modules/ivy.el")
 (load "~/.emacs.d/modules/dired.el")
 (load "~/.emacs.d/modules/gnus.el")
-(load "~/.emacs.d/modules/programming.el")
 (load "~/.emacs.d/modules/git.el")
 (load "~/.emacs.d/modules/candy.el")
 (load "~/.emacs.d/modules/erc.el")
 (load "~/.emacs.d/modules/extra.el")
 (load "~/.emacs.d/modules/hyperbole.el")
 (load "~/.emacs.d/modules/themes.el")
+
+(load "~/.emacs.d/modules/programming.el")
+(load "~/.emacs.d/modules/javascript.el")
 
 ;;; init.el ends here
