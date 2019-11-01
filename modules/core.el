@@ -38,7 +38,7 @@
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
-;; (add-hook 'before-save-hook 'whitespace-cleanup)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 (global-hl-line-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
