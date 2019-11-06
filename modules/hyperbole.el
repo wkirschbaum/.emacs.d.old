@@ -4,9 +4,9 @@
 ;;     (package-reinstall 'hyperbole)
 ;;   (package-install 'hyperbole))
 
-;; installed manually, so want to pin 
-;; (require 'hyperbole)
+;; installed manually, so want to pin
+;; (require 'hyperbole)n
+(unless (package-installed-p 'hyperbole)
+    (package-install 'hyperbole))
 
-(use-package hyperbole
-  :ensure t
-  :pin gnu)
+(require 'hyperbole)
