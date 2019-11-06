@@ -4,7 +4,7 @@
   (find-file "~/.emacs.d/init.el"))
 
 (defun whk/line-normal ()
-  "Display line numbers as default"
+  "Display line numbers as default."
   (interactive)
   (progn
     (setq display-line-numbers-type t)
@@ -12,7 +12,7 @@
     (display-line-numbers-mode 1)))
 
 (defun whk/line-rel ()
-  "Display line numbers as default"
+  "Display line numbers as relative."
   (interactive)
   (progn
     (setq display-line-numbers-type 'visual)
@@ -20,6 +20,7 @@
     (display-line-numbers-mode 1)))
 
 (defun kill-filename ()
+  "Kill the filename."
   (interactive)
   (when (buffer-file-name)
     (kill-new (file-relative-name (buffer-file-name) (projectile-project-root)))))
@@ -39,7 +40,7 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
-;; (global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
+(global-set-key (kbd "C-x k") 'prs/kill-this-buffer)
 
 (defun whk/get-url-content (url)
   "Make a get request to the URL and return the body."
