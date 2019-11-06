@@ -156,3 +156,9 @@
 (use-package docker
   :ensure t
   :bind ("C-c d" . docker))
+
+(use-package ace-window
+  :ensure t
+  :bind ("C-x C-o" . ace-window))
+
+;;; extra.el ends here
