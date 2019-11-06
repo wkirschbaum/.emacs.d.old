@@ -75,4 +75,6 @@
 ;; Toggle relative line numbers
 (whk/line-rel)
 
+(add-hook 'emacs-startup-hook (lambda () (message (concat "Emacs started in" " " (emacs-init-time)))))
+
 ;;; core.el ends here

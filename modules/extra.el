@@ -100,18 +100,6 @@
   (add-hook 'markdown-mode-hook #'toggle-word-wrap)
   (setq markdown-command "/usr/bin/pandoc"))
 
-(use-package dashboard
-  :ensure t
-  :config
-  (setq dashboard-banner-logo-title "Focus on using yasnippets this week!"
-        dashboard-startup-banner 'official
-        dashboard-center-content t
-        dashboard-items '((agenda . 10)
-                          (bookmarks . 5)
-                          (projects . 5))
-        show-week-agenda-p t)
-  (dashboard-setup-startup-hook))
-
 (use-package elfeed
   :ensure t
   :bind ("C-x w" . elfeed)
