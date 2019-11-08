@@ -48,3 +48,6 @@
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
 (setq org-clock-idle-time 15)
+
+(setq org-ellipsis "↴")
+(setq org-src-tab-acts-natively t)
