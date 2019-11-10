@@ -42,7 +42,6 @@
 (load "~/.emacs.d/modules/candy.el")
 (load "~/.emacs.d/modules/erc.el")
 (load "~/.emacs.d/modules/extra.el")
-(load "~/.emacs.d/modules/hyperbole.el")
 (load "~/.emacs.d/modules/themes.el")
 
 (load "~/.emacs.d/modules/programming.el")
