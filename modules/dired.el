@@ -10,4 +10,4 @@
   :config
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
-(setq dired-listing-switches "-AlShr")
+;; (setq dired-listing-switches "-AlShr")
