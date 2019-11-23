@@ -51,7 +51,9 @@
   (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
         projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
-        projectile-completion-system 'ivy)
+        projectile-completion-system 'ivy
+        projectile-sort-order 'recently-active
+        projectile-indexing-method 'hybrid)
   (projectile-mode +1))
 
 (use-package ibuffer
