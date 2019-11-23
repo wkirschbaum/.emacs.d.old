@@ -8,7 +8,7 @@
      (float-time (time-since time))))
 
 ;; Set garbage collection threshold to 1GB.
-(setq gc-cons-threshold #x40000000)
+(setq gc-cons-threshold (* 1024 1024 1024))
 
 ;; When idle for 10 sec run the GC no matter what.
 (defvar k-gc-timer
