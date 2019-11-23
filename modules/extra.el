@@ -63,11 +63,6 @@
                     (unless (eq ibuffer-sorting-mode 'recency)
                       (ibuffer-do-sort-by-recency))))
 
-(use-package ibuffer-projectile
-  :ensure t
-  :after (projectile ibuffer)
-  :config)
-
 (use-package company
   :ensure t
   :config
