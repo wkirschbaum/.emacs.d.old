@@ -48,13 +48,10 @@
   :ensure t
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
-  (setq projectile-enable-caching t
-        projectile-completion-system 'ivy
-        projectile-file-exists-remote-cache-expire nil
-        projectile-sort-order 'recently-active
+  (setq projectile-file-exists-remote-cache-expire nil
         projectile-dynamic-mode-line t
         projectile-mode-line-function '(lambda () (format " [%s]" (projectile-project-name)))
-        projectile-indexing-method 'hybrid)
+        projectile-completion-system 'ivy)
   (projectile-mode +1))
 
 (use-package ibuffer
@@ -159,6 +156,6 @@
 
 (use-package ace-window
   :ensure t
-  :bind ("C-x C-o" . ace-window))
+  :bind ("C-x o" . ace-window))
 
 ;;; extra.el ends here
