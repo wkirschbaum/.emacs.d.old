@@ -103,3 +103,21 @@
   :ensure t
   :config
   (add-to-list 'company-backends 'company-restclient))
+
+;; Javascript
+(use-package jest
+  :ensure t)
+
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :interpreter "node"
+  :config
+  (setq-default js2-strict-trailing-comma-warning t)
+  (setq-default js2-strict-inconsistent-return-warning nil))
+
+(use-package company-tern
+  :ensure t
+  :hook (js2-mode . tern-mode)
+  :config
+  (add-to-list 'company-backends 'company-tern))
