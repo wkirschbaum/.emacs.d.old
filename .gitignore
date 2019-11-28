@@ -13,3 +13,4 @@ org-clock-save.el
 /eshell/history
 /eshell/lastdir
 /forge-database.sqlite
+/.lsp-session-v1
