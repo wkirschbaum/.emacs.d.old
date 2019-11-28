@@ -69,6 +69,8 @@
 (setq-default display-line-numbers-widen t)
 (setq-default indent-tabs-mode nil)
 
+(save-place-mode 1)
+
 ;; Do not ask when following symbolic link
 (setq vc-follow-symlinks nil)
 
