@@ -13,3 +13,5 @@ org-clock-save.el
 /eshell/history
 /eshell/lastdir
 /forge-database.sqlite
+/saveplace
+/tramp
