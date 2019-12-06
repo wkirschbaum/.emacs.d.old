@@ -15,3 +15,5 @@ org-clock-save.el
 /forge-database.sqlite
 /.lsp-*
 /places
+/saveplace
+/tramp
