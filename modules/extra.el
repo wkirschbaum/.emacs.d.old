@@ -18,6 +18,8 @@
                           "recentf"
                           "undo-tree-hist"
                           "url"
+                          "elpa/*"
+                          "node_modules/*"
                           "COMMIT_EDITMSG\\'"))
   :config
   (recentf-mode 1))
@@ -146,9 +148,5 @@
   :ensure t
   :config
   (company-prescient-mode))
-
-(use-package docker
-  :ensure t
-  :bind ("C-c d" . docker))
 
 ;;; extra.el ends here
