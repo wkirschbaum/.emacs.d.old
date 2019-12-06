@@ -66,14 +66,6 @@
   :config
   (projectile-rails-global-mode))
 
-(use-package robe
-  :ensure t
-  :config
-  (global-robe-mode))
-
-(eval-after-load 'company
-  '(push 'company-robe company-backends))
-
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t) ;; cucumber
 
@@ -104,20 +96,18 @@
   :config
   (add-to-list 'company-backends 'company-restclient))
 
-;; Javascript
-(use-package jest
-  :ensure t)
+;; Completion
 
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js\\'"
-  :interpreter "node"
-  :config
-  (setq-default js2-strict-trailing-comma-warning t)
-  (setq-default js2-strict-inconsistent-return-warning nil))
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :hook (prog-mode . lsp)
+;;   :commands lsp
+;;   :config
+;;   (add-to-list 'lsp-language-id-configuration '(js2-mode "javascript")))
 
-(use-package company-tern
-  :ensure t
-  :hook (js2-mode . tern-mode)
-  :config
-  (add-to-list 'company-backends 'company-tern))
+;; (use-package company-lsp
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'company-backends 'company-lsp))
+
+;; (use-package lsp-ui :commands lsp-ui-mode)
