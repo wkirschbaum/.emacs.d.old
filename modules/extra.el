@@ -104,7 +104,8 @@
         '("https://planet.emacslife.com/atom.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss"
-          "https://wilhelmbot.com/feed.xml")))
+          "https://wilhelmbot.com/feed.xml"
+          "https://emacsair.me/feed.xml")))
 
 (use-package easy-jekyll
   :ensure t

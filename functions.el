@@ -25,6 +25,12 @@
   (when (buffer-file-name)
     (kill-new (file-relative-name (buffer-file-name) (projectile-project-root)))))
 
+(defun func-region (start end func)
+  "run a function over the region between START and END in current buffer."
+  (save-excursion
+    (let ((text (delete-and-extract-region start end)))
+      (insert (funcall func text)))))
+
 (defun hex-region (start end)
   "Url encode the region between START and END in the buffer."
   (interactive "r")
