@@ -16,7 +16,7 @@
                         :body (format "%s" msg)
                         :replaces-id nil
                         :app-icon nil
-                        :timeout 5000
+                        :timeout 15000
                         :desktop-entry "emacs"))
 
 (setq appt-disp-window-function (function whk/appt-display))
