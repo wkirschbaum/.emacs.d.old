@@ -45,5 +45,6 @@
 (load "~/.emacs.d/modules/themes.el")
 (load "~/.emacs.d/modules/programming.el")
 (load "~/.emacs.d/modules/javascript.el")
+(load "~/.emacs.d/modules/notifications.el")
 
 ;;; init.el ends here
