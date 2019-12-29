@@ -22,8 +22,7 @@
     (set-face-attribute 'mode-line-inactive nil :overline   line)
     (set-face-attribute 'mode-line-inactive nil :underline  line)
     (set-face-attribute 'mode-line          nil :box        nil)
-    (set-face-attribute 'mode-line-inactive nil :box        nil)
-    (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+    (set-face-attribute 'mode-line-inactive nil :box        nil)))
 
 (set-frame-font "Hack 11" nil t)
 
