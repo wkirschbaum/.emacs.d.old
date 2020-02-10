@@ -44,6 +44,7 @@
 (load "~/.emacs.d/modules/extra.el")
 (load "~/.emacs.d/modules/themes.el")
 (load "~/.emacs.d/modules/programming.el")
+(load "~/.emacs.d/modules/haskell.el")
 (load "~/.emacs.d/modules/javascript.el")
 (load "~/.emacs.d/modules/notifications.el")
 
