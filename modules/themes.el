@@ -15,6 +15,7 @@
   (moody-replace-vc-mode))
 
 (use-package solarized-theme
+  :ensure t
   :config
   (load-theme 'solarized-dark t)
   (let ((line (face-attribute 'mode-line :underline)))
