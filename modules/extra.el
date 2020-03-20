@@ -105,7 +105,8 @@
           "https://www.ruby-lang.org/en/feeds/news.rss"
           "https://rubyweekly.com/rss"
           "https://wilhelmbot.com/feed.xml"
-          "https://emacsair.me/feed.xml")))
+          "https://emacsair.me/feed.xml"
+          "https://mikrotik.com/download.rss")))
 
 (use-package easy-jekyll
   :ensure t
