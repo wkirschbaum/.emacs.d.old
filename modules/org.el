@@ -1,14 +1,14 @@
 (use-package org
   :ensure t
   :config
-  (setq org-agenda-files (file-expand-wildcards "~/Dropbox/Org/*.org"))
-  (setq org-directory "~/Dropbox/Org/")
+  (setq org-agenda-files (file-expand-wildcards "~/Cloud/Org/*.org"))
+  (setq org-directory "~/Cloud/Org/")
   (setq org-capture-templates
-        '(("n" "Note" entry (file+headline "~/Dropbox/Org/notes.org" "Notes") "* %?\n%U\n%a")
-          ("c" "Code" entry (file+headline "~/Dropbox/Org/codes.org" "Unsorted") "* %?\n  %a")
-          ("p" "People" entry (file+headline "~/Dropbox/Org/people.org" "Unsorted") "* %?\n%U\n")
-          ("a" "Appointment" entry (file+headline "~/Dropbox/Org/calendar.org" "Appointments") "* %?\n")
-          ("t" "Todo" entry (file+headline "~/Dropbox/Org/todo.org" "Today") "* TODO %?")))
+        '(("n" "Note" entry (file+headline "~/Cloud/Org/notes.org" "Notes") "* %?\n%U\n%a")
+          ("c" "Code" entry (file+headline "~/Cloud/Org/codes.org" "Unsorted") "* %?\n  %a")
+          ("p" "People" entry (file+headline "~/Cloud/Org/people.org" "Unsorted") "* %?\n%U\n")
+          ("a" "Appointment" entry (file+headline "~/Cloud/Org/calendar.org" "Appointments") "* %?\n")
+          ("t" "Todo" entry (file+headline "~/Cloud/Org/todo.org" "Today") "* TODO %?")))
 
   (setq-default org-todo-keywords
                 '((sequence "TODO(t)" "DOING(b)" "|" "DONE(d)")))
@@ -34,7 +34,7 @@
   (setq calendar-view-diary-initially-flag t
         calendar-mark-diary-entries-flag t
         european-calendar-style 't
-        diary-file "~/Dropbox/Org/diary")
+        diary-file "~/Cloud/Org/diary")
 
   (setq org-catch-invisible-edits 'error))
 
