@@ -11,7 +11,7 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-(setq auth-sources '((:source "~/Dropbox/secrets/.authinfo.gpg")))
+(setq auth-sources '((:source "~/Clouds/secrets/.authinfo.gpg")))
 
 (if (display-graphic-p)
     (progn
@@ -51,7 +51,7 @@
 
 (setq-default auto-revert-verbose nil)
 (setq-default indicate-empty-lines t)
-(global-auto-revert-mode t) ;; Ensure Dropbox files exists for this (org mode agenda)
+(global-auto-revert-mode t) ;; Ensure Cloud files exists for this (org mode agenda)
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 (setq-default wdired-allow-to-change-permissions t)
 (setq-default wdired-create-parent-directories t)
