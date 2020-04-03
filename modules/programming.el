@@ -69,7 +69,10 @@
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t) ;; cucumber
 
-(use-package terraform-mode :ensure t)
+(use-package terraform-mode
+  :ensure t
+  :config
+  (terraform-format-on-save-mode))
 
 (use-package groovy-mode
   :ensure t)
@@ -95,6 +98,11 @@
   :ensure t
   :config
   (add-to-list 'company-backends 'company-restclient))
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
 
 ;; Completion
 
