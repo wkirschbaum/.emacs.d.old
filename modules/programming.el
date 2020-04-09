@@ -74,12 +74,6 @@
 (use-package groovy-mode
   :ensure t)
 
-(use-package elixir-mode
-  :ensure t)
-
-(use-package alchemist
-  :ensure t)
-
 (use-package flycheck-mix
   :ensure t)
 
