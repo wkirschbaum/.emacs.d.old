@@ -10,6 +10,10 @@
   :config
   (counsel-projectile-mode))
 
+;; change files from C-o
+(use-package wgrep
+  :ensure t)
+
 (use-package ivy
   :ensure t
   :bind(("C-c r" . ivy-resume))

@@ -33,6 +33,7 @@
   :mode (("\\.html?\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.html.eex\\'" . web-mode)
+         ("\\.html.leex\\'" . web-mode)
          )
   :config
   (setq web-mode-markup-indent-offset 2)
