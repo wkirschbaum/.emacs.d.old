@@ -40,7 +40,7 @@
 (use-package whitespace
   :hook (prog-mode . whitespace-mode)
   :config
-  (setq whitespace-style '(face tabs tab-mark trailing empty)))
+  (setq whitespace-style '(face tab-mark trailing empty)))
 
 (use-package ag
   :ensure t
