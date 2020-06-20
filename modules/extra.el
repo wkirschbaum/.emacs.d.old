@@ -107,7 +107,8 @@
           "https://wilhelmbot.com/feed.xml"
           "https://emacsair.me/feed.xml"
           "https://mikrotik.com/download.rss"
-          "https://www.archlinux.org/feeds/news")))
+          "https://www.archlinux.org/feeds/news"
+          "https://www.atomicaccess.co.za/feed")))
 
 (use-package easy-jekyll
   :ensure t

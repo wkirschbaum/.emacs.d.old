@@ -54,7 +54,7 @@
 (use-package bundler
   :ensure t)
 
-(use-package rspec-mode
+(use-package terraform-mode
   :ensure t
   :config
   (setq-default rspec-use-spring-when-possible t)
@@ -65,7 +65,8 @@
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t) ;; cucumber
 
-(use-package terraform-mode :ensure t)
+(use-package terraform-mode :ensure t
+  (terraform-format-on-save-mode))
 
 (use-package groovy-mode
   :ensure t)
@@ -88,7 +89,12 @@
 
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-clients-elixir-server-executable "~/src/opensource/elixir-ls/language_server.sh")
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
 
+;; Completion
 (use-package lsp-mode
   :ensure t
   :hook ((ruby-mode . lsp)
