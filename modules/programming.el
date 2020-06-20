@@ -54,7 +54,7 @@
 (use-package bundler
   :ensure t)
 
-(use-package terraform-mode
+(use-package rspec-mode
   :ensure t
   :config
   (setq-default rspec-use-spring-when-possible t)
@@ -65,8 +65,7 @@
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t) ;; cucumber
 
-(use-package terraform-mode :ensure t
-  (terraform-format-on-save-mode))
+(use-package terraform-mode :ensure t)
 
 (use-package groovy-mode
   :ensure t)
