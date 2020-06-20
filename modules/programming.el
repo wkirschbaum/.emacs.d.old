@@ -62,11 +62,6 @@
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
-(use-package projectile-rails
-  :ensure t
-  :config
-  (projectile-rails-global-mode))
-
 (use-package rubocop :ensure t)
 (use-package feature-mode :ensure t) ;; cucumber
 
@@ -91,18 +86,22 @@
   :config
   (add-to-list 'company-backends 'company-restclient))
 
-;; Completion
+(setq lsp-keymap-prefix "C-c l")
+(setq lsp-clients-elixir-server-executable "~/src/opensource/elixir-ls/language_server.sh")
 
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :hook (prog-mode . lsp)
-;;   :commands lsp
-;;   :config
-;;   (add-to-list 'lsp-language-id-configuration '(js2-mode "javascript")))
+(use-package lsp-mode
+  :ensure t
+  :hook ((ruby-mode . lsp)
+         (elixir-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-;; (use-package company-lsp
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-lsp))
+(use-package lsp-ui :ensure t :commands lsp-ui-mode)
+(use-package lsp-ivy :ensure t :commands lsp-ivy-workspace-symbol)
+(use-package dap-mode :ensure t)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
-;; (use-package lsp-ui :commands lsp-ui-mode)
+(use-package company-lsp
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-lsp))

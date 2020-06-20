@@ -1,3 +1,5 @@
+(setq js-indent-level 4)
+
 (use-package tide
   :ensure t
   :config
